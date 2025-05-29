@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223321EF2DE8778300959ADB /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321EE2DE8778300959ADB /* Presenter.swift */; };
+		223321F42DE8783F00959ADB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321F32DE8783F00959ADB /* NetworkService.swift */; };
 		229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243A92DE5A979009A4F96 /* AppDelegate.swift */; };
 		229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AB2DE5A979009A4F96 /* SceneDelegate.swift */; };
 		229243AE2DE5A979009A4F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AD2DE5A979009A4F96 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223321EE2DE8778300959ADB /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		223321F32DE8783F00959ADB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		229243A62DE5A979009A4F96 /* SporaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SporaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243A92DE5A979009A4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229243AB2DE5A979009A4F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223321EA2DE8768D00959ADB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				223321F22DE8782400959ADB /* Services */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		223321EB2DE8769C00959ADB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				223321F12DE877E000959ADB /* controller */,
+				229243AF2DE5A979009A4F96 /* Main.storyboard */,
+				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		223321EC2DE876D100959ADB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				223321EE2DE8778300959ADB /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		223321ED2DE8774C00959ADB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				229243A92DE5A979009A4F96 /* AppDelegate.swift */,
+				229243AB2DE5A979009A4F96 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		223321F02DE8779600959ADB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				229243B52DE5A982009A4F96 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		223321F12DE877E000959ADB /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				229243AD2DE5A979009A4F96 /* ViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		223321F22DE8782400959ADB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				223321F32DE8783F00959ADB /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2292439D2DE5A979009A4F96 = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +164,11 @@
 		229243A82DE5A979009A4F96 /* SporaApp */ = {
 			isa = PBXGroup;
 			children = (
-				229243A92DE5A979009A4F96 /* AppDelegate.swift */,
-				229243AB2DE5A979009A4F96 /* SceneDelegate.swift */,
-				229243AD2DE5A979009A4F96 /* ViewController.swift */,
-				229243AF2DE5A979009A4F96 /* Main.storyboard */,
-				229243B52DE5A982009A4F96 /* Assets.xcassets */,
-				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
+				223321F02DE8779600959ADB /* Resources */,
+				223321ED2DE8774C00959ADB /* App */,
+				223321EC2DE876D100959ADB /* Presenter */,
+				223321EB2DE8769C00959ADB /* View */,
+				223321EA2DE8768D00959ADB /* Model */,
 				229243BA2DE5A982009A4F96 /* Info.plist */,
 				229243B22DE5A979009A4F96 /* SporaApp.xcdatamodeld */,
 			);
@@ -265,6 +327,8 @@
 				229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */,
 				229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */,
 				229243B42DE5A979009A4F96 /* SporaApp.xcdatamodeld in Sources */,
+				223321F42DE8783F00959ADB /* NetworkService.swift in Sources */,
+				223321EF2DE8778300959ADB /* Presenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
