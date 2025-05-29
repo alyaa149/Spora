@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		223321EF2DE8778300959ADB /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321EE2DE8778300959ADB /* Presenter.swift */; };
 		223321F42DE8783F00959ADB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321F32DE8783F00959ADB /* NetworkService.swift */; };
+		223321FB2DE8A2F400959ADB /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 223321FA2DE8A2F300959ADB /* splash.json */; };
+		223322042DE8AE7000959ADB /* CategoryHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */; };
+		223322062DE8AEC600959ADB /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322052DE8AEC600959ADB /* SplashPresenter.swift */; };
+		2233220E2DE8C2BB00959ADB /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233220C2DE8C2BB00959ADB /* CategoryCollectionViewController.swift */; };
+		2233220F2DE8C2BB00959ADB /* CategoryCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233220D2DE8C2BB00959ADB /* CategoryCollectionViewController.xib */; };
+		223322122DE8C3AA00959ADB /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322102DE8C3AA00959ADB /* CategoryCollectionViewCell.swift */; };
+		223322132DE8C3AA00959ADB /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223322112DE8C3AA00959ADB /* CategoryCollectionViewCell.xib */; };
+		2233221B2DE905A000959ADB /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322192DE905A000959ADB /* TabBar.swift */; };
+		2233221C2DE905A000959ADB /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233221A2DE905A000959ADB /* TabBar.xib */; };
+		223322202DE90E2300959ADB /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233221E2DE90E2300959ADB /* FavoritesTableViewController.swift */; };
+		223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233221F2DE90E2300959ADB /* FavoritesTableViewController.xib */; };
 		229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243A92DE5A979009A4F96 /* AppDelegate.swift */; };
 		229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AB2DE5A979009A4F96 /* SceneDelegate.swift */; };
 		229243AE2DE5A979009A4F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AD2DE5A979009A4F96 /* ViewController.swift */; };
@@ -19,6 +29,9 @@
 		229243C42DE5A983009A4F96 /* SporaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243C32DE5A983009A4F96 /* SporaAppTests.swift */; };
 		229243CE2DE5A983009A4F96 /* SporaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */; };
 		229243D02DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */; };
+		6E7A6E424E8265588F97B2A8 /* Pods_SporaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */; };
+		9508AF420E68438930E1BA33 /* Pods_SporaApp_SporaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */; };
+		F1B51E73056153EB50B6AB6C /* Pods_SporaAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +52,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		223321EE2DE8778300959ADB /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		223321F32DE8783F00959ADB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		223321FA2DE8A2F300959ADB /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = Resources/Animation/splash.json; sourceTree = "<group>"; };
+		223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryHomePresenter.swift; path = SporaApp/CategoryHomePresenter.swift; sourceTree = SOURCE_ROOT; };
+		223322052DE8AEC600959ADB /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashPresenter.swift; path = SporaApp/SplashPresenter.swift; sourceTree = SOURCE_ROOT; };
+		2233220C2DE8C2BB00959ADB /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		2233220D2DE8C2BB00959ADB /* CategoryCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewController.xib; sourceTree = "<group>"; };
+		223322102DE8C3AA00959ADB /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		223322112DE8C3AA00959ADB /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		223322192DE905A000959ADB /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		2233221A2DE905A000959ADB /* TabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
+		2233221E2DE90E2300959ADB /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		2233221F2DE90E2300959ADB /* FavoritesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewController.xib; sourceTree = "<group>"; };
 		229243A62DE5A979009A4F96 /* SporaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SporaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243A92DE5A979009A4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229243AB2DE5A979009A4F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +78,15 @@
 		229243C92DE5A983009A4F96 /* SporaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITests.swift; sourceTree = "<group>"; };
 		229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp.release.xcconfig"; path = "Target Support Files/Pods-SporaApp/Pods-SporaApp.release.xcconfig"; sourceTree = "<group>"; };
+		37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp.debug.xcconfig"; path = "Target Support Files/Pods-SporaApp/Pods-SporaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp-SporaAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SporaAppTests/Pods-SporaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaAppTests.release.xcconfig"; path = "Target Support Files/Pods-SporaAppTests/Pods-SporaAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp-SporaAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp_SporaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7A6E424E8265588F97B2A8 /* Pods_SporaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B51E73056153EB50B6AB6C /* Pods_SporaAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +110,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9508AF420E68438930E1BA33 /* Pods_SporaApp_SporaAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D733ABCFE84227E00BCB363 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */,
+				258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */,
+				C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */,
+				5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */,
+				5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */,
+				A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		223321EA2DE8768D00959ADB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,20 +138,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		223321EB2DE8769C00959ADB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				223321F12DE877E000959ADB /* controller */,
-				229243AF2DE5A979009A4F96 /* Main.storyboard */,
-				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		223321EC2DE876D100959ADB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				223321EE2DE8778300959ADB /* Presenter.swift */,
+				223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */,
+				223322052DE8AEC600959ADB /* SplashPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -128,7 +167,12 @@
 		223321F12DE877E000959ADB /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				2233221D2DE90CAA00959ADB /* favorites */,
+				223322142DE903E300959ADB /* splash */,
+				223322092DE8BA8D00959ADB /* category */,
 				229243AD2DE5A979009A4F96 /* ViewController.swift */,
+				223322192DE905A000959ADB /* TabBar.swift */,
+				2233221A2DE905A000959ADB /* TabBar.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -141,6 +185,43 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		223322022DE8AABC00959ADB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				229243AF2DE5A979009A4F96 /* Main.storyboard */,
+				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
+				223321F12DE877E000959ADB /* controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		223322092DE8BA8D00959ADB /* category */ = {
+			isa = PBXGroup;
+			children = (
+				2233220C2DE8C2BB00959ADB /* CategoryCollectionViewController.swift */,
+				2233220D2DE8C2BB00959ADB /* CategoryCollectionViewController.xib */,
+				223322102DE8C3AA00959ADB /* CategoryCollectionViewCell.swift */,
+				223322112DE8C3AA00959ADB /* CategoryCollectionViewCell.xib */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		223322142DE903E300959ADB /* splash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = splash;
+			sourceTree = "<group>";
+		};
+		2233221D2DE90CAA00959ADB /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				2233221E2DE90E2300959ADB /* FavoritesTableViewController.swift */,
+				2233221F2DE90E2300959ADB /* FavoritesTableViewController.xib */,
+			);
+			path = favorites;
+			sourceTree = "<group>";
+		};
 		2292439D2DE5A979009A4F96 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +229,8 @@
 				229243C22DE5A983009A4F96 /* SporaAppTests */,
 				229243CC2DE5A983009A4F96 /* SporaAppUITests */,
 				229243A72DE5A979009A4F96 /* Products */,
+				0D733ABCFE84227E00BCB363 /* Pods */,
+				E0C2F2ABBFFE3C92E01A86C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,10 +247,11 @@
 		229243A82DE5A979009A4F96 /* SporaApp */ = {
 			isa = PBXGroup;
 			children = (
+				223321EC2DE876D100959ADB /* Presenter */,
+				223322022DE8AABC00959ADB /* View */,
+				223321FA2DE8A2F300959ADB /* splash.json */,
 				223321F02DE8779600959ADB /* Resources */,
 				223321ED2DE8774C00959ADB /* App */,
-				223321EC2DE876D100959ADB /* Presenter */,
-				223321EB2DE8769C00959ADB /* View */,
 				223321EA2DE8768D00959ADB /* Model */,
 				229243BA2DE5A982009A4F96 /* Info.plist */,
 				229243B22DE5A979009A4F96 /* SporaApp.xcdatamodeld */,
@@ -192,6 +276,16 @@
 			path = SporaAppUITests;
 			sourceTree = "<group>";
 		};
+		E0C2F2ABBFFE3C92E01A86C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */,
+				C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */,
+				5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,9 +293,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229243D32DE5A983009A4F96 /* Build configuration list for PBXNativeTarget "SporaApp" */;
 			buildPhases = (
+				584C71DA65F312FFD2BADBC2 /* [CP] Check Pods Manifest.lock */,
 				229243A22DE5A979009A4F96 /* Sources */,
 				229243A32DE5A979009A4F96 /* Frameworks */,
 				229243A42DE5A979009A4F96 /* Resources */,
+				D4E00ADDECF6DC7F91D39536 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +312,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229243D62DE5A983009A4F96 /* Build configuration list for PBXNativeTarget "SporaAppTests" */;
 			buildPhases = (
+				BDFCD12F9B34885EB87590C4 /* [CP] Check Pods Manifest.lock */,
 				229243BB2DE5A983009A4F96 /* Sources */,
 				229243BC2DE5A983009A4F96 /* Frameworks */,
 				229243BD2DE5A983009A4F96 /* Resources */,
@@ -234,9 +331,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229243D92DE5A983009A4F96 /* Build configuration list for PBXNativeTarget "SporaAppUITests" */;
 			buildPhases = (
+				79517E74239ED51D65CC1465 /* [CP] Check Pods Manifest.lock */,
 				229243C52DE5A983009A4F96 /* Sources */,
 				229243C62DE5A983009A4F96 /* Frameworks */,
 				229243C72DE5A983009A4F96 /* Resources */,
+				1335CFFD21A14E1AC2F7B2DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,9 +395,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223322132DE8C3AA00959ADB /* CategoryCollectionViewCell.xib in Resources */,
 				229243B92DE5A982009A4F96 /* LaunchScreen.storyboard in Resources */,
+				2233220F2DE8C2BB00959ADB /* CategoryCollectionViewController.xib in Resources */,
 				229243B62DE5A982009A4F96 /* Assets.xcassets in Resources */,
+				223321FB2DE8A2F400959ADB /* splash.json in Resources */,
+				223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */,
 				229243B12DE5A979009A4F96 /* Main.storyboard in Resources */,
+				2233221C2DE905A000959ADB /* TabBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +422,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1335CFFD21A14E1AC2F7B2DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		584C71DA65F312FFD2BADBC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SporaApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79517E74239ED51D65CC1465 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SporaApp-SporaAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDFCD12F9B34885EB87590C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SporaAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4E00ADDECF6DC7F91D39536 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		229243A22DE5A979009A4F96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -325,10 +532,15 @@
 			files = (
 				229243AE2DE5A979009A4F96 /* ViewController.swift in Sources */,
 				229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */,
+				2233220E2DE8C2BB00959ADB /* CategoryCollectionViewController.swift in Sources */,
+				223322202DE90E2300959ADB /* FavoritesTableViewController.swift in Sources */,
 				229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */,
+				223322122DE8C3AA00959ADB /* CategoryCollectionViewCell.swift in Sources */,
 				229243B42DE5A979009A4F96 /* SporaApp.xcdatamodeld in Sources */,
 				223321F42DE8783F00959ADB /* NetworkService.swift in Sources */,
-				223321EF2DE8778300959ADB /* Presenter.swift in Sources */,
+				2233221B2DE905A000959ADB /* TabBar.swift in Sources */,
+				223322042DE8AE7000959ADB /* CategoryHomePresenter.swift in Sources */,
+				223322062DE8AEC600959ADB /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +712,7 @@
 		};
 		229243D42DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -527,6 +740,7 @@
 		};
 		229243D52DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -554,6 +768,7 @@
 		};
 		229243D72DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -573,6 +788,7 @@
 		};
 		229243D82DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -592,6 +808,7 @@
 		};
 		229243DA2DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -609,6 +826,7 @@
 		};
 		229243DB2DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
