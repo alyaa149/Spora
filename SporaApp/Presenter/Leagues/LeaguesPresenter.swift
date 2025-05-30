@@ -9,4 +9,17 @@ import Foundation
 
 class LeaguesPresenter{
     
+    var leaguesVC : LeaguesViewControllerProtocol!
+    var networkService : NetworkServiceProtocol!
+    
+    init(leaguesVC: LeaguesViewControllerProtocol!) {
+        self.leaguesVC = leaguesVC
+        networkService = NetworkService()
+    }
+    
+    func getLeaguesFromAPI(sport: String){
+        networkService.getLeagues(sport: sport) { res in
+            self.leaguesVC.getData(res: res)
+        }
+    }
 }

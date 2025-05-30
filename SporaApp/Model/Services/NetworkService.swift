@@ -10,9 +10,9 @@ import Alamofire
 
 class NetworkService : NetworkServiceProtocol {
     
-    func getLeagues(handler: @escaping (LeaguesResponse)->Void) {
+    func getLeagues(sport: String, handler: @escaping (LeaguesResponse)->Void) {
         
-        AF.request("https://apiv2.allsportsapi.com/football/?met=Leagues&APIkey=\(APIKeys.firstKey)")
+        AF.request("https://apiv2.allsportsapi.com/\(sport)/?met=Leagues&APIkey=\(APIKeys.firstKey)")
             .responseDecodable(of: LeaguesResponse.self) { response in
                 switch response.result {
                 case .success(let items):
