@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+lottie-ios in Pods, no dependencies
