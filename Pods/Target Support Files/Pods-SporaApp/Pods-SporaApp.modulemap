@@ -1,6 +1,0 @@
-framework module Pods_SporaApp {
-  umbrella header "Pods-SporaApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
