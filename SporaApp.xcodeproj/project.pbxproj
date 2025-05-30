@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		223321F42DE8783F00959ADB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321F32DE8783F00959ADB /* NetworkService.swift */; };
-		223321FB2DE8A2F400959ADB /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 223321FA2DE8A2F300959ADB /* splash.json */; };
 		223322042DE8AE7000959ADB /* CategoryHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */; };
 		223322062DE8AEC600959ADB /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322052DE8AEC600959ADB /* SplashPresenter.swift */; };
 		2233220E2DE8C2BB00959ADB /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233220C2DE8C2BB00959ADB /* CategoryCollectionViewController.swift */; };
@@ -19,6 +18,7 @@
 		2233221C2DE905A000959ADB /* TabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233221A2DE905A000959ADB /* TabBar.xib */; };
 		223322202DE90E2300959ADB /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233221E2DE90E2300959ADB /* FavoritesTableViewController.swift */; };
 		223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2233221F2DE90E2300959ADB /* FavoritesTableViewController.xib */; };
+		2289E8792DE9A5780011A74A /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 2289E8782DE9A5770011A74A /* splash.json */; };
 		229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243A92DE5A979009A4F96 /* AppDelegate.swift */; };
 		229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AB2DE5A979009A4F96 /* SceneDelegate.swift */; };
 		229243AE2DE5A979009A4F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AD2DE5A979009A4F96 /* ViewController.swift */; };
@@ -53,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		223321F32DE8783F00959ADB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		223321FA2DE8A2F300959ADB /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = Resources/Animation/splash.json; sourceTree = "<group>"; };
 		223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryHomePresenter.swift; path = SporaApp/CategoryHomePresenter.swift; sourceTree = SOURCE_ROOT; };
 		223322052DE8AEC600959ADB /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashPresenter.swift; path = SporaApp/SplashPresenter.swift; sourceTree = SOURCE_ROOT; };
 		2233220C2DE8C2BB00959ADB /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		2233221A2DE905A000959ADB /* TabBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBar.xib; sourceTree = "<group>"; };
 		2233221E2DE90E2300959ADB /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		2233221F2DE90E2300959ADB /* FavoritesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesTableViewController.xib; sourceTree = "<group>"; };
+		2289E8782DE9A5770011A74A /* splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.json; path = ../../../../../Downloads/splash.json; sourceTree = "<group>"; };
 		229243A62DE5A979009A4F96 /* SporaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SporaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243A92DE5A979009A4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229243AB2DE5A979009A4F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,7 +170,6 @@
 				2233221D2DE90CAA00959ADB /* favorites */,
 				223322142DE903E300959ADB /* splash */,
 				223322092DE8BA8D00959ADB /* category */,
-				229243AD2DE5A979009A4F96 /* ViewController.swift */,
 				223322192DE905A000959ADB /* TabBar.swift */,
 				2233221A2DE905A000959ADB /* TabBar.xib */,
 			);
@@ -209,6 +208,7 @@
 		223322142DE903E300959ADB /* splash */ = {
 			isa = PBXGroup;
 			children = (
+				229243AD2DE5A979009A4F96 /* ViewController.swift */,
 			);
 			path = splash;
 			sourceTree = "<group>";
@@ -247,9 +247,9 @@
 		229243A82DE5A979009A4F96 /* SporaApp */ = {
 			isa = PBXGroup;
 			children = (
+				2289E8782DE9A5770011A74A /* splash.json */,
 				223321EC2DE876D100959ADB /* Presenter */,
 				223322022DE8AABC00959ADB /* View */,
-				223321FA2DE8A2F300959ADB /* splash.json */,
 				223321F02DE8779600959ADB /* Resources */,
 				223321ED2DE8774C00959ADB /* App */,
 				223321EA2DE8768D00959ADB /* Model */,
@@ -399,9 +399,9 @@
 				229243B92DE5A982009A4F96 /* LaunchScreen.storyboard in Resources */,
 				2233220F2DE8C2BB00959ADB /* CategoryCollectionViewController.xib in Resources */,
 				229243B62DE5A982009A4F96 /* Assets.xcassets in Resources */,
-				223321FB2DE8A2F400959ADB /* splash.json in Resources */,
 				223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */,
 				229243B12DE5A979009A4F96 /* Main.storyboard in Resources */,
+				2289E8792DE9A5780011A74A /* splash.json in Resources */,
 				2233221C2DE905A000959ADB /* TabBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
