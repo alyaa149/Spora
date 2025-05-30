@@ -29,7 +29,7 @@
 		229243C42DE5A983009A4F96 /* SporaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243C32DE5A983009A4F96 /* SporaAppTests.swift */; };
 		229243CE2DE5A983009A4F96 /* SporaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */; };
 		229243D02DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */; };
-		6E7A6E424E8265588F97B2A8 /* Pods_SporaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */; };
+		22CE44ED2DEA1BDE004970BD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 22CE44EC2DEA1BDE004970BD /* Lottie */; };
 		9508AF420E68438930E1BA33 /* Pods_SporaApp_SporaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */; };
 		F1B51E73056153EB50B6AB6C /* Pods_SporaAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -78,14 +78,8 @@
 		229243C92DE5A983009A4F96 /* SporaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITests.swift; sourceTree = "<group>"; };
 		229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp.release.xcconfig"; path = "Target Support Files/Pods-SporaApp/Pods-SporaApp.release.xcconfig"; sourceTree = "<group>"; };
-		37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp.debug.xcconfig"; path = "Target Support Files/Pods-SporaApp/Pods-SporaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp-SporaAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SporaAppTests/Pods-SporaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaAppTests.release.xcconfig"; path = "Target Support Files/Pods-SporaAppTests/Pods-SporaAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SporaApp-SporaAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp_SporaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E7A6E424E8265588F97B2A8 /* Pods_SporaApp.framework in Frameworks */,
+				22CE44ED2DEA1BDE004970BD /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,19 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D733ABCFE84227E00BCB363 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */,
-				258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */,
-				C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */,
-				5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */,
-				5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */,
-				A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		223321EA2DE8768D00959ADB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +210,6 @@
 				229243C22DE5A983009A4F96 /* SporaAppTests */,
 				229243CC2DE5A983009A4F96 /* SporaAppUITests */,
 				229243A72DE5A979009A4F96 /* Products */,
-				0D733ABCFE84227E00BCB363 /* Pods */,
 				E0C2F2ABBFFE3C92E01A86C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -293,17 +273,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 229243D32DE5A983009A4F96 /* Build configuration list for PBXNativeTarget "SporaApp" */;
 			buildPhases = (
-				584C71DA65F312FFD2BADBC2 /* [CP] Check Pods Manifest.lock */,
 				229243A22DE5A979009A4F96 /* Sources */,
 				229243A32DE5A979009A4F96 /* Frameworks */,
 				229243A42DE5A979009A4F96 /* Resources */,
-				D4E00ADDECF6DC7F91D39536 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SporaApp;
+			packageProductDependencies = (
+				22CE44EC2DEA1BDE004970BD /* Lottie */,
+			);
 			productName = SporaApp;
 			productReference = 229243A62DE5A979009A4F96 /* SporaApp.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +360,9 @@
 				Base,
 			);
 			mainGroup = 2292439D2DE5A979009A4F96;
+			packageReferences = (
+				22CE44EB2DEA1BDE004970BD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 229243A72DE5A979009A4F96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -440,28 +424,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SporaApp-SporaAppUITests/Pods-SporaApp-SporaAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		584C71DA65F312FFD2BADBC2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SporaApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		79517E74239ED51D65CC1465 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,23 +466,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4E00ADDECF6DC7F91D39536 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SporaApp/Pods-SporaApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -712,7 +657,6 @@
 		};
 		229243D42DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37EC4D65713C29CC942B6240 /* Pods-SporaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -740,7 +684,6 @@
 		};
 		229243D52DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 258D1056F9B90306B9D136DA /* Pods-SporaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -768,7 +711,6 @@
 		};
 		229243D72DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FA31BB3D983DA6BC5A4FAE4 /* Pods-SporaAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -788,7 +730,6 @@
 		};
 		229243D82DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A073046DBED0E439EB34D0CB /* Pods-SporaAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -808,7 +749,6 @@
 		};
 		229243DA2DE5A983009A4F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C041E177C0C2919E6B9810A8 /* Pods-SporaApp-SporaAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -826,7 +766,6 @@
 		};
 		229243DB2DE5A983009A4F96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F053BCB40DE4AD5BA539534 /* Pods-SporaApp-SporaAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -882,6 +821,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22CE44EB2DEA1BDE004970BD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22CE44EC2DEA1BDE004970BD /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22CE44EB2DEA1BDE004970BD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		229243B22DE5A979009A4F96 /* SporaApp.xcdatamodeld */ = {
