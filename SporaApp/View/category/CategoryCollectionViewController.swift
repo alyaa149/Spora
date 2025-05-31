@@ -18,6 +18,7 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
        ]
      override func viewDidLoad() {
          super.viewDidLoad()
+         print("Nav controller: \(navigationController != nil ? "Exists" : "Nil")")
          self.title = "Sports Categories"
          collectionView.backgroundColor = .white
          let nib = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
@@ -71,5 +72,14 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
                          minimumLineSpacingForSectionAt section: Int) -> CGFloat {
          return 10
      }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Category selected: \(sports[indexPath.row].0)")
+        let sport = sports[indexPath.row].0
+        let leaguesVC = LeaguesTableViewController(nibName: "LeaguesTableViewController", bundle: nil)
+        let leaguesPresenter = LeaguesPresenter(leaguesVC: leaguesVC, sport: sport.lowercased())
+        leaguesVC.presenter = leaguesPresenter
+        self.navigationController?.pushViewController(leaguesVC, animated: true)
+    }
  
 }

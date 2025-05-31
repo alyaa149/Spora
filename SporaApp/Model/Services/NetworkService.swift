@@ -12,7 +12,7 @@ import Alamofire
 class NetworkService : NetworkServiceProtocol {
     
     func getLeagues(sport: String, handler: @escaping (LeaguesResponse)->Void) {
-        
+        print(sport)
         AF.request("https://apiv2.allsportsapi.com/\(sport)/?met=Leagues&APIkey=\(APIKeys.firstKey)")
             .responseDecodable(of: LeaguesResponse.self) { response in
                 switch response.result {

@@ -11,15 +11,18 @@ class LeaguesPresenter{
     
     var leaguesVC : LeaguesViewControllerProtocol!
     var networkService : NetworkServiceProtocol!
+    var sport : String!
     
-    init(leaguesVC: LeaguesViewControllerProtocol!) {
+    init(leaguesVC: LeaguesViewControllerProtocol!, sport: String) {
         self.leaguesVC = leaguesVC
         networkService = NetworkService()
+        self.sport = sport
     }
     
-    func getLeaguesFromAPI(sport: String){
-        networkService.getLeagues(sport: sport) { res in
-            self.leaguesVC.getData(res: res)
+    func getLeaguesFromAPI(){
+        networkService.getLeagues(sport: self.sport) { res in
+            print("##\(res.result[0].leagueName)")
+            self.leaguesVC.renderData(res: res)
         }
     }
 }
