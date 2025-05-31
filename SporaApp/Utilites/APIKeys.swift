@@ -9,4 +9,5 @@ import Foundation
 
 enum APIKeys : String{
     case firstKey = "aef5b846ed7ec87d020d91a5d71376dfb14949708cb92933c54d39a1b65e985a"
+    case secondKey = "fe9466a6e284368277c51b6fb466ea1939c6e860867a3f7b5b16af00bb993d30"
 }
