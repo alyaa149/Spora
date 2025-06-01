@@ -7,17 +7,19 @@
 
 import Foundation
 
-struct LeaguesResponse: Codable {
+struct LeaguesResponse: Decodable {
     let result: [LeagueModel]
 }
 
-struct LeagueModel: Codable {
+struct LeagueModel: Decodable {
     let leagueName: String
     let leagueLogo: String?
+    let league_key: Int?
     
     enum CodingKeys: String,CodingKey {
         case leagueName = "league_name"
         case leagueLogo = "league_logo"
+        case league_key = "league_key"
         
     }
 }

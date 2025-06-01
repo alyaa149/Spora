@@ -11,7 +11,7 @@
         <!--Details Leagues Collection View Controller-->
         <scene sceneID="qiP-6i-Wvo">
             <objects>
-                <collectionViewController id="b3h-0H-5Ir" customClass="DetailsLeaguesCollectionViewController" customModule="SporaApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="DetailsLeaguesCollectionViewController" id="b3h-0H-5Ir" customClass="DetailsLeaguesCollectionViewController" customModule="SporaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2Bv-eI-QIc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -106,5 +106,16 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
         // Pass the selected object to the new view controller.
     }
     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedLeague = leagues[indexPath.row]
+        let leagueId = selectedLeague.league_key ?? 0
+
+        let detailsStoryboard = UIStoryboard(name: "Details", bundle: nil)
+        let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
+
+        detailsVC.leagueId = leagueId
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
+
     
 }

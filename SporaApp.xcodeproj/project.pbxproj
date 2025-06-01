@@ -31,7 +31,8 @@
 		22577D852DEBC259002BF2A1 /* LeaugeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577D842DEBC259002BF2A1 /* LeaugeDetailsModel.swift */; };
 		22577D882DEBC485002BF2A1 /* LeaguesDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577D872DEBC485002BF2A1 /* LeaguesDetailsPresenter.swift */; };
 		22577D8A2DEBC522002BF2A1 /* LeaguesDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577D892DEBC522002BF2A1 /* LeaguesDetailsPresenterProtocol.swift */; };
-		22577D8C2DEBC6CC002BF2A1 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577D8B2DEBC6CC002BF2A1 /* Team.swift */; };
+		2265FEBB2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265FEB92DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift */; };
+		2265FEBC2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2265FEBA2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib */; };
 		229243AA2DE5A979009A4F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243A92DE5A979009A4F96 /* AppDelegate.swift */; };
 		229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243AB2DE5A979009A4F96 /* SceneDelegate.swift */; };
 		229243B42DE5A979009A4F96 /* SporaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 229243B22DE5A979009A4F96 /* SporaApp.xcdatamodeld */; };
@@ -90,7 +91,8 @@
 		22577D842DEBC259002BF2A1 /* LeaugeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaugeDetailsModel.swift; sourceTree = "<group>"; };
 		22577D872DEBC485002BF2A1 /* LeaguesDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsPresenter.swift; sourceTree = "<group>"; };
 		22577D892DEBC522002BF2A1 /* LeaguesDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
-		22577D8B2DEBC6CC002BF2A1 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		2265FEB92DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingEventsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2265FEBA2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingEventsCollectionViewCell.xib; sourceTree = "<group>"; };
 		229243A62DE5A979009A4F96 /* SporaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SporaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243A92DE5A979009A4F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		229243AB2DE5A979009A4F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 				223321F22DE8782400959ADB /* Services */,
 				A0AF51B62DE8A73D00B72BD1 /* LeaugeModel.swift */,
 				22577D842DEBC259002BF2A1 /* LeaugeDetailsModel.swift */,
-				22577D8B2DEBC6CC002BF2A1 /* Team.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,8 +269,10 @@
 		22577D7F2DEBB305002BF2A1 /* DetailsOfLeagues */ = {
 			isa = PBXGroup;
 			children = (
+				2265FEC12DEC70DE0017B3F7 /* xibFiles */,
 				22577D802DEBB729002BF2A1 /* Details.storyboard */,
 				22577D822DEBC191002BF2A1 /* DetailsLeaguesCollectionViewController.swift */,
+				2265FEB92DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift */,
 			);
 			path = DetailsOfLeagues;
 			sourceTree = "<group>";
@@ -281,6 +284,14 @@
 				22577D892DEBC522002BF2A1 /* LeaguesDetailsPresenterProtocol.swift */,
 			);
 			path = LeaguesDetails;
+			sourceTree = "<group>";
+		};
+		2265FEC12DEC70DE0017B3F7 /* xibFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2265FEBA2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib */,
+			);
+			path = xibFiles;
 			sourceTree = "<group>";
 		};
 		2292439D2DE5A979009A4F96 = {
@@ -487,6 +498,7 @@
 				2233220F2DE8C2BB00959ADB /* CategoryCollectionViewController.xib in Resources */,
 				229243B92DE5A982009A4F96 /* LaunchScreen.storyboard in Resources */,
 				229243B62DE5A982009A4F96 /* Assets.xcassets in Resources */,
+				2265FEBC2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib in Resources */,
 				22577D812DEBB72A002BF2A1 /* Details.storyboard in Resources */,
 				223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */,
 				2220BC7E2DEA6DFA008BF1DE /* LeaguesTableViewController.xib in Resources */,
@@ -587,12 +599,12 @@
 				22577D8A2DEBC522002BF2A1 /* LeaguesDetailsPresenterProtocol.swift in Sources */,
 				223322122DE8C3AA00959ADB /* CategoryCollectionViewCell.swift in Sources */,
 				A0AF51B02DE8948D00B72BD1 /* LeaguesPresenter.swift in Sources */,
+				2265FEBB2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift in Sources */,
 				229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */,
 				A0AF51B52DE8A59600B72BD1 /* NetworkServiceProtocol.swift in Sources */,
 				229243B42DE5A979009A4F96 /* SporaApp.xcdatamodeld in Sources */,
 				A0AF51BB2DE8B72800B72BD1 /* APIKeys.swift in Sources */,
 				22577D832DEBC191002BF2A1 /* DetailsLeaguesCollectionViewController.swift in Sources */,
-				22577D8C2DEBC6CC002BF2A1 /* Team.swift in Sources */,
 				223321F42DE8783F00959ADB /* NetworkService.swift in Sources */,
 				2233221B2DE905A000959ADB /* TabBar.swift in Sources */,
 				2220BC6B2DEA4A63008BF1DE /* ViewController.swift in Sources */,

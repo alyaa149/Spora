@@ -9,5 +9,4 @@ import Foundation
 protocol LeagueDetailsViewProtocol: AnyObject {
     func displayUpcomingEvents(_ events: [Event])
     func displayLatestEvents(_ events: [Event])
-    func displayTeams(_ teams: [Team])
 }
