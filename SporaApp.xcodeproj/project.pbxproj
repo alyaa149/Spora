@@ -213,6 +213,7 @@
 		223322022DE8AABC00959ADB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A01CA4812DEC877900E1C921 /* TeamsDetails */,
 				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
 				2233221D2DE90CAA00959ADB /* favorites */,
 				223322142DE903E300959ADB /* splash */,
@@ -304,6 +305,13 @@
 				229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */,
 			);
 			path = SporaAppUITests;
+			sourceTree = "<group>";
+		};
+		A01CA4812DEC877900E1C921 /* TeamsDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TeamsDetails;
 			sourceTree = "<group>";
 		};
 		A0AF51B82DE8AF3E00B72BD1 /* Leagues */ = {

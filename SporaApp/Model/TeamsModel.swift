@@ -15,8 +15,8 @@ struct TeamModel: Codable {
     let teamKey: Int
     let teamName: String?
     let teamLogo: String?
-    let players: [Player]
-    let coaches: [Coach]
+    let players: [Player]?
+    let coaches: [Coach]?
     
     enum CodingKeys: String, CodingKey {
         case teamKey = "team_key"

@@ -9,4 +9,5 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func getLeagues(sport: String, handler: @escaping (LeaguesResponse)->Void)
+    func getTeams(sportName: String, leagueID: Int, handler: @escaping (AllTeamsResponse)->Void)
 }

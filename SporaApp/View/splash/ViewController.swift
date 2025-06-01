@@ -33,9 +33,6 @@ class SplashViewController: UIViewController {
         let tabBarController = TabBar()
         // Wrap tab bar in a navigation controller
             let navigationController = UINavigationController(rootViewController: tabBarController)
-            
-            // Hide navigation bar only on the tab bar screen
-            //navigationController.setNavigationBarHidden(true, animated: false)
 
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let window = windowScene.windows.first {
