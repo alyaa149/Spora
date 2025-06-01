@@ -31,14 +31,19 @@ class SplashViewController: UIViewController {
 
     private func goToMainApp() {
         let tabBarController = TabBar()
-
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first {
+        // Wrap tab bar in a navigation controller
+            let navigationController = UINavigationController(rootViewController: tabBarController)
             
-            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                window.rootViewController = tabBarController
-            })
-        }
+            // Hide navigation bar only on the tab bar screen
+            //navigationController.setNavigationBarHidden(true, animated: false)
+
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                
+                UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                    window.rootViewController = navigationController
+                }
+            }
     }
 }
 
