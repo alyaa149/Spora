@@ -30,6 +30,7 @@ class SplashViewController: UIViewController {
     }
 
     private func goToMainApp() {
+
         let tabBarController = TabBar()
         // Wrap tab bar in a navigation controller
             let navigationController = UINavigationController(rootViewController: tabBarController)
