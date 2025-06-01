@@ -9,4 +9,8 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func getLeagues(sport: String, handler: @escaping (LeaguesResponse)->Void)
+
+    func getFixtures(leagueId: Int, completion: @escaping ([Event]) -> Void)
+
+
 }

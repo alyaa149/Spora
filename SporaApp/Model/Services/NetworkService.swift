@@ -24,5 +24,26 @@ class NetworkService : NetworkServiceProtocol {
                 }
             }
     }
+    func getFixtures(leagueId: Int, completion: @escaping ([Event]) -> Void) {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+          let to = dateFormatter.string(from: Date())
+          let from = dateFormatter.string(from: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
+
+          let url = "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=\(leagueId)&from=\(from)&to=\(to)&APIkey=\(APIKeys.firstKey)"
+
+          AF.request(url).responseDecodable(of: EventResponse.self) { response in
+              switch response.result {
+              case .success(let result):
+                  print("count in presenter: \(result.result.count)")
+
+                  completion(result.result)
+              case .failure(let error):
+                  print("Error: \(error.localizedDescription)")
+                  completion([])
+              }
+          }
+      }
     
+
 }
