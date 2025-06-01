@@ -30,15 +30,18 @@ class SplashViewController: UIViewController {
     }
 
     private func goToMainApp() {
-         let tabBarController = TabBar()
 
-         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-            let window = windowScene.windows.first {
-             
-             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                 window.rootViewController = tabBarController
-             })
-         }
-     }
+        let tabBarController = TabBar()
+        // Wrap tab bar in a navigation controller
+            let navigationController = UINavigationController(rootViewController: tabBarController)
+
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                
+                UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                    window.rootViewController = navigationController
+                }
+            }
+    }
 }
 

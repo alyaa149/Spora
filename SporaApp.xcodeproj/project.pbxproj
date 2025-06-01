@@ -42,6 +42,7 @@
 		229243CE2DE5A983009A4F96 /* SporaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */; };
 		229243D02DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */; };
 		9508AF420E68438930E1BA33 /* Pods_SporaApp_SporaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */; };
+		A01CA4802DEC6B5900E1C921 /* TeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA47F2DEC6B5800E1C921 /* TeamsModel.swift */; };
 		A073C51A2DEB623700CF39DE /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = A073C5192DEB623700CF39DE /* splash.json */; };
 		A0AF51A82DE8877200B72BD1 /* LeaguesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF51A62DE8877200B72BD1 /* LeaguesTableViewController.swift */; };
 		A0AF51AD2DE88C6400B72BD1 /* LeaguesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF51AB2DE88C6400B72BD1 /* LeaguesTableViewCell.swift */; };
@@ -107,6 +108,7 @@
 		229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01CA47F2DEC6B5800E1C921 /* TeamsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsModel.swift; sourceTree = "<group>"; };
 		A073C5192DEB623700CF39DE /* splash.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = splash.json; sourceTree = "<group>"; };
 		A0AF51A62DE8877200B72BD1 /* LeaguesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewController.swift; sourceTree = "<group>"; };
 		A0AF51AB2DE88C6400B72BD1 /* LeaguesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				223321F22DE8782400959ADB /* Services */,
 				A0AF51B62DE8A73D00B72BD1 /* LeaugeModel.swift */,
 				22577D842DEBC259002BF2A1 /* LeaugeDetailsModel.swift */,
+				A01CA47F2DEC6B5800E1C921 /* TeamsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				22577D7F2DEBB305002BF2A1 /* DetailsOfLeagues */,
+				A01CA4812DEC877900E1C921 /* TeamsDetails */,
 				229243B72DE5A982009A4F96 /* LaunchScreen.storyboard */,
 				2233221D2DE90CAA00959ADB /* favorites */,
 				223322142DE903E300959ADB /* splash */,
@@ -346,6 +350,13 @@
 				229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */,
 			);
 			path = SporaAppUITests;
+			sourceTree = "<group>";
+		};
+		A01CA4812DEC877900E1C921 /* TeamsDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TeamsDetails;
 			sourceTree = "<group>";
 		};
 		A0AF51B82DE8AF3E00B72BD1 /* Leagues */ = {
@@ -600,6 +611,7 @@
 				223322122DE8C3AA00959ADB /* CategoryCollectionViewCell.swift in Sources */,
 				A0AF51B02DE8948D00B72BD1 /* LeaguesPresenter.swift in Sources */,
 				2265FEBB2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift in Sources */,
+				A01CA4802DEC6B5900E1C921 /* TeamsModel.swift in Sources */,
 				229243AC2DE5A979009A4F96 /* SceneDelegate.swift in Sources */,
 				A0AF51B52DE8A59600B72BD1 /* NetworkServiceProtocol.swift in Sources */,
 				229243B42DE5A979009A4F96 /* SporaApp.xcdatamodeld in Sources */,
