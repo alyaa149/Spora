@@ -32,6 +32,8 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController ,League
         
         let nib = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "UpComingEventsCell")
+        
+        let teamsNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
 
 //        collectionView.register(SectionHeaderView.self,
 //                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
