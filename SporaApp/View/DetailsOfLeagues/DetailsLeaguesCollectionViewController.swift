@@ -69,19 +69,16 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
         collectionView.reloadSections(IndexSet(integer: 0))
-        showLottieAnimationIfNeeded()
     }
     
     func displayLatestEvents(_ events: [Event]) {
         self.latestEvents = Array(events.prefix(10))
         collectionView.reloadSections(IndexSet(integer: 1))
-        showLottieAnimationIfNeeded()
     }
     
     func displayTeams(_ teams: [TeamModel]) {
         self.teams = teams
         collectionView.reloadSections(IndexSet(integer: 2))
-        showLottieAnimationIfNeeded()
     }
     
     func displayTennisEvents(_ tennisEvents: TennisPlayerResponse) {
@@ -214,7 +211,12 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if upcomingEvents.isEmpty {
+            if presenter.sportName == "tennis"{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
+                let event = tennisEvents[indexPath.row]
+                configureTennis(cell: cell, with: event, section: 0)
+                return cell
+            }else if upcomingEvents.isEmpty {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell0", for: indexPath) as! LottieeCollectionViewCell
                 return cell
             } else {
@@ -227,8 +229,8 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                     configure(cell: cell, with: event, section: 0)
                 }
                 return cell
-            }
 
+            }
         case 1:
             if presenter.sportName == "tennis" {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as! TeamsCollectionViewCell
@@ -237,16 +239,20 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 let url = URL(string: player.eventFirstPlayerLogo ?? "")
                 cell.teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
                 return cell
-            } else {
-                if latestEvents.isEmpty {
-                          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell1", for: indexPath) as! LottieeCollectionViewCell
-                          return cell
-                      } else {
-                          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
-                          let event = latestEvents[indexPath.item]
-                          configure(cell: cell, with: event, section: 1)
-                          return cell
-                      }
+
+            }else{
+                if latestEvents.isEmpty{
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell1", for: indexPath) as! LottieeCollectionViewCell
+                    return cell
+                }else{
+                    guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? UpComingEventsCollectionViewCell else {
+                        fatalError("No Cell")
+                        
+                    }
+                    let event = latestEvents.isEmpty ? nil : latestEvents[indexPath.item]
+                    configure(cell: cell, with: event, section: 1)
+                    return cell
+                }
             }
 
         default:
@@ -337,27 +343,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             }
         }
         
-        private func setupLottieAnimation() {
-            lottieView = LottieAnimationView(name: "empty")
-            lottieView?.contentMode = .scaleAspectFit
-            lottieView?.loopMode = .loop
-            
-            let containerView = UIView(frame: collectionView.bounds)
-            containerView.backgroundColor = .clear
-            
-            lottieView?.translatesAutoresizingMaskIntoConstraints = false
-            containerView.addSubview(lottieView!)
-            
-            NSLayoutConstraint.activate([
-                lottieView!.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-                lottieView!.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-                lottieView!.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
-                lottieView!.heightAnchor.constraint(equalTo: lottieView!.widthAnchor)
-            ])
-            
-            collectionView.backgroundView = containerView
-            lottieView?.play()
-        }
+   
         
         private func removeLottieAnimation() {
             lottieView?.stop()
@@ -366,33 +352,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             collectionView.backgroundView = nil
         }
         
-        override func collectionView(
-            _ collectionView: UICollectionView,
-            viewForSupplementaryElementOfKind kind: String,
-            at indexPath: IndexPath
-        ) -> UICollectionReusableView {
-            guard kind == UICollectionView.elementKindSectionHeader,
-                  let header = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: "SectionHeaderView",
-                    for: indexPath
-                  ) as? SectionHeaderView else {
-                return UICollectionReusableView()
-            }
-            
-            switch indexPath.section {
-            case 0:
-                header.titleLabel.text = "Upcoming Events"
-                header.titleLabel.textColor = .systemOrange
-            case 1:
-                header.titleLabel.text = "Latest Events"
-                header.titleLabel.textColor = .systemGreen
-            default:
-                header.titleLabel.text = "Teams"
-            }
-            
-            return header
-        }
+
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)
@@ -407,5 +367,71 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 break
             }
         }
+    
+
+
+    private func setupLottieAnimation() {
+        lottieView = LottieAnimationView(name: "empty")
+        lottieView?.contentMode = .scaleAspectFit
+        lottieView?.loopMode = .loop
+        
+        let containerView = UIView(frame: collectionView.bounds)
+        containerView.backgroundColor = .clear
+        
+        lottieView?.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(lottieView!)
+        
+        NSLayoutConstraint.activate([
+            lottieView!.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            lottieView!.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            lottieView!.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8),
+            lottieView!.heightAnchor.constraint(equalTo: lottieView!.widthAnchor)
+        ])
+        
+        collectionView.backgroundView = containerView
+        lottieView?.play()
     }
 
+
+
+override func collectionView(
+    _ collectionView: UICollectionView,
+    viewForSupplementaryElementOfKind kind: String,
+    at indexPath: IndexPath
+) -> UICollectionReusableView {
+    guard kind == UICollectionView.elementKindSectionHeader,
+          let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: "SectionHeaderView",
+            for: indexPath
+          ) as? SectionHeaderView else {
+        return UICollectionReusableView()
+    }
+    
+    switch indexPath.section {
+    case 0:
+        if presenter.sportName == "tennis" {
+            header.titleLabel.text = "Latest Events"
+            header.titleLabel.textColor = .systemGreen
+            return header
+        }
+        header.titleLabel.text = "Upcoming Events"
+        header.titleLabel.textColor = .systemOrange
+    case 1:
+        if presenter.sportName == "tennis" {
+            header.titleLabel.text = "Players"
+            header.titleLabel.textColor = .black
+            return header
+        }
+        header.titleLabel.text = "Latest Events"
+        header.titleLabel.textColor = .systemGreen
+    default:
+        header.titleLabel.text = "Teams"
+        header.titleLabel.textColor = .black
+    }
+    
+    return header
+}
+    
+  
+}
