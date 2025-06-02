@@ -47,19 +47,16 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
         collectionView.reloadSections(IndexSet(integer: 0))
-        showLottieAnimationIfNeeded()
     }
     
     func displayLatestEvents(_ events: [Event]) {
         self.latestEvents = Array(events.prefix(10))
         collectionView.reloadSections(IndexSet(integer: 1))
-        showLottieAnimationIfNeeded()
     }
     
     func displayTeams(_ teams: [TeamModel]) {
         self.teams = teams
         collectionView.reloadSections(IndexSet(integer: 2))
-        showLottieAnimationIfNeeded()
     }
     
     func displayTennisEvents(_ tennisEvents: TennisPlayerResponse) {
@@ -175,13 +172,13 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             if presenter.sportName == "tennis"{
                 return max(tennisEvents.count, 0)
             }else{
-                return max(upcomingEvents.count, 0)
+                return upcomingEvents.isEmpty ? 1 : upcomingEvents.count
             }
         case 1:
             if presenter.sportName == "tennis"{
                 return max(tennisPlayers.count, 0)
             }else{
-                return max(latestEvents.count, 0)
+                return latestEvents.isEmpty ? 1 : latestEvents.count
             }
         default:
             return max(teams.count, 0)
@@ -192,19 +189,21 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if upcomingEvents.isEmpty {
+            if presenter.sportName == "tennis"{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
+                let event = tennisEvents[indexPath.row]
+                configureTennis(cell: cell, with: event, section: 0)
+                return cell
+            }else if upcomingEvents.isEmpty {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell0", for: indexPath) as! LottieeCollectionViewCell
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
-            if presenter.sportName == "tennis"{
-                let event = tennisEvents[indexPath.row]
-                configureTennis(cell: cell, with: event, section: 0)
-            }else{
-                let event = upcomingEvents[indexPath.item]
-                configure(cell: cell, with: event, section: 0)
+                
+                    let event = upcomingEvents[indexPath.item]
+                    configure(cell: cell, with: event, section: 0)
+                return cell
             }
-            
         case 1:
             if presenter.sportName == "tennis"{
                 guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as? TeamsCollectionViewCell else {
@@ -216,13 +215,18 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 cell.teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
                 return cell
             }else{
-                guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section2", for: indexPath) as? UpComingEventsCollectionViewCell else {
-                    fatalError("No Cell")
-                    
+                if latestEvents.isEmpty{
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell1", for: indexPath) as! LottieeCollectionViewCell
+                    return cell
+                }else{
+                    guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as? UpComingEventsCollectionViewCell else {
+                        fatalError("No Cell")
+                        
+                    }
+                    let event = latestEvents.isEmpty ? nil : latestEvents[indexPath.item]
+                    configure(cell: cell, with: event, section: 1)
+                    return cell
                 }
-                let event = latestEvents.isEmpty ? nil : latestEvents[indexPath.item]
-                configure(cell: cell, with: event, section: 1)
-                return cell
             }
             
         default:
@@ -317,7 +321,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     }
 
     private func setupLottieAnimation() {
-        lottieView = LottieAnimationView(name: "splash")
+        lottieView = LottieAnimationView(name: "empty")
         lottieView?.contentMode = .scaleAspectFit
         lottieView?.loopMode = .loop
         
@@ -361,13 +365,24 @@ override func collectionView(
     
     switch indexPath.section {
     case 0:
+        if presenter.sportName == "tennis" {
+            header.titleLabel.text = "Latest Events"
+            header.titleLabel.textColor = .systemGreen
+            return header
+        }
         header.titleLabel.text = "Upcoming Events"
         header.titleLabel.textColor = .systemOrange
     case 1:
+        if presenter.sportName == "tennis" {
+            header.titleLabel.text = "Players"
+            header.titleLabel.textColor = .black
+            return header
+        }
         header.titleLabel.text = "Latest Events"
         header.titleLabel.textColor = .systemGreen
     default:
         header.titleLabel.text = "Teams"
+        header.titleLabel.textColor = .black
     }
     
     return header
