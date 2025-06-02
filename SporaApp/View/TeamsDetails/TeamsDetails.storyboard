@@ -24,7 +24,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw3-qW-Mem">
-                                <rect key="frame" x="138" y="228" width="120" height="24"/>
+                                <rect key="frame" x="138" y="207" width="120" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="MlG-MX-L4R"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                         <constraints>
                             <constraint firstItem="cw3-qW-Mem" firstAttribute="leading" secondItem="eZ1-Ki-eGG" secondAttribute="leading" constant="2" id="3no-Us-rw8"/>
                             <constraint firstItem="eZ1-Ki-eGG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Pqg-yR-VCz"/>
-                            <constraint firstItem="cw3-qW-Mem" firstAttribute="top" secondItem="eZ1-Ki-eGG" secondAttribute="bottom" constant="29" id="TK1-0y-CVP"/>
+                            <constraint firstItem="cw3-qW-Mem" firstAttribute="top" secondItem="eZ1-Ki-eGG" secondAttribute="bottom" constant="8" id="TK1-0y-CVP"/>
                             <constraint firstItem="eZ1-Ki-eGG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="136" id="whk-91-vPW"/>
                         </constraints>
                     </view>

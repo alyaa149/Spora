@@ -17,58 +17,56 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hQv-CM-Npk">
-                        <rect key="frame" x="16" y="10" width="80" height="80"/>
+                        <rect key="frame" x="16" y="15" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="PBw-bF-xRB"/>
-                            <constraint firstAttribute="height" constant="80" id="cMG-fA-VHJ"/>
+                            <constraint firstAttribute="width" constant="60" id="PBw-bF-xRB"/>
+                            <constraint firstAttribute="height" constant="60" id="cMG-fA-VHJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="40"/>
+                                <integer key="value" value="30"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leoniel Messi" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWz-eg-bLX">
-                        <rect key="frame" x="140" y="19" width="120" height="20.333333333333329"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="120" id="m0W-Tm-U6t"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qy8-9p-q4N">
-                        <rect key="frame" x="116" y="61" width="29" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="108" y="38" width="24.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zea-Un-QLO">
-                        <rect key="frame" x="153" y="61" width="18" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="135.33333333333334" y="38" width="15.333333333333343" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leoniel Messi" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWz-eg-bLX">
+                        <rect key="frame" x="108" y="15" width="87.333333333333314" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Zea-Un-QLO" firstAttribute="leading" secondItem="qy8-9p-q4N" secondAttribute="trailing" constant="8" symbolic="YES" id="3AK-a6-RZk"/>
-                    <constraint firstItem="qy8-9p-q4N" firstAttribute="leading" secondItem="hQv-CM-Npk" secondAttribute="trailing" constant="20" id="3rj-Q4-IF0"/>
+                    <constraint firstItem="HWz-eg-bLX" firstAttribute="leading" secondItem="hQv-CM-Npk" secondAttribute="trailing" constant="32" id="4oX-lY-7iC"/>
+                    <constraint firstItem="qy8-9p-q4N" firstAttribute="leading" secondItem="HWz-eg-bLX" secondAttribute="leading" id="5y4-cB-zVe"/>
                     <constraint firstItem="hQv-CM-Npk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7WO-Jk-AAz"/>
-                    <constraint firstItem="hQv-CM-Npk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ft7-Or-8sr"/>
-                    <constraint firstItem="qy8-9p-q4N" firstAttribute="top" secondItem="HWz-eg-bLX" secondAttribute="bottom" constant="21.670000000000002" id="HGn-jg-0tN"/>
-                    <constraint firstItem="HWz-eg-bLX" firstAttribute="leading" secondItem="hQv-CM-Npk" secondAttribute="trailing" constant="44" id="QdM-5h-8ZM"/>
-                    <constraint firstItem="HWz-eg-bLX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="S7U-IP-k05"/>
-                    <constraint firstItem="Zea-Un-QLO" firstAttribute="top" secondItem="HWz-eg-bLX" secondAttribute="bottom" constant="21.670000000000002" id="YSM-sv-a1y"/>
+                    <constraint firstItem="HWz-eg-bLX" firstAttribute="top" secondItem="hQv-CM-Npk" secondAttribute="top" id="ET8-b9-kkP"/>
+                    <constraint firstItem="hQv-CM-Npk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Ft7-Or-8sr"/>
+                    <constraint firstItem="Zea-Un-QLO" firstAttribute="centerY" secondItem="qy8-9p-q4N" secondAttribute="centerY" id="KAj-Mx-pxc"/>
+                    <constraint firstItem="Zea-Un-QLO" firstAttribute="leading" secondItem="qy8-9p-q4N" secondAttribute="trailing" constant="3" id="UmC-i4-nkR"/>
+                    <constraint firstItem="qy8-9p-q4N" firstAttribute="top" secondItem="HWz-eg-bLX" secondAttribute="bottom" constant="6" id="pL6-Rh-J7R"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="noLabel" destination="qy8-9p-q4N" id="iMp-CF-Iog"/>
                 <outlet property="playerImage" destination="hQv-CM-Npk" id="niZ-EC-pHk"/>
                 <outlet property="playerName" destination="HWz-eg-bLX" id="Ejz-Dp-OHZ"/>
                 <outlet property="playerNumber" destination="Zea-Un-QLO" id="bcU-n8-Kf4"/>
             </connections>
-            <point key="canvasLocation" x="5" y="-11"/>
+            <point key="canvasLocation" x="4.5801526717557248" y="-11.267605633802818"/>
         </tableViewCell>
     </objects>
 </document>

@@ -9,13 +9,16 @@ import UIKit
 import SwiftUI
 import Kingfisher
 
-class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TeamsDetailsViewControllerProtocol {
     
     var team : TeamModel!
     var goalkeepers  : [Player] = []
     var defenders : [Player] = []
     var midfielders : [Player] = []
     var forwards : [Player] = []
+    var coaches : [Coach] = []
+    
+    var presenter : TeamsDetailsPresenter!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var teamName: UILabel!
@@ -23,14 +26,28 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.getTeamDetails()
+        
         let nib = UINib(nibName: "TeamsDetailsTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         
-        teamName.text = team.teamName
-        let url = URL(string: team.teamLogo ?? "")
-        teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+     
+        // Do any additional setup after loading the view.
+    }
+    
+    func displayTeamDetails(resevedTeam: TeamModel, sportName: String){
+        self.team = resevedTeam
+        self.teamName.text = resevedTeam.teamName
+        let url = URL(string: resevedTeam.teamLogo ?? "")
+        self.teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+        if let coachArray = resevedTeam.coaches {
+            self.coaches = coachArray
+        }else{
+            self.coaches = []
+        }
+        //self.coaches = resevedTeam.coaches ?? []
         
-        let players = team.players
+        let players = resevedTeam.players
         players?.forEach { player in
             switch player.playerType {
             case "Goalkeepers":
@@ -46,7 +63,7 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
                 forwards.append(player)
             }
         }
-        // Do any additional setup after loading the view.
+        self.tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +73,7 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            return coaches.count
         case 1:
             return goalkeepers.count
         case 2:
@@ -72,7 +89,10 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TeamsDetailsTableViewCell
         switch indexPath.section {
         case 0:
-            cell.playerName.text = team.coaches?[0].coachName
+            cell.playerImage.image = UIImage(named: "placeholder")
+            cell.playerName.text = coaches[indexPath.row].coachName
+            cell.noLabel.isHidden = true
+            cell.playerNumber.isHidden = true
             break
         case 1:
             let goalkeeper = goalkeepers[indexPath.row]
@@ -108,8 +128,8 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 40))
-        let label = UILabel(frame: CGRect(x: 16, y: 15, width: (self.tableView.bounds.size.width ) - 32, height: 30))
-        label.textColor = UIColor(red: 185/255, green: 212/255, blue: 170/255, alpha: 1.0)
+        let label = UILabel(frame: CGRect(x: 5, y: -10, width: (self.tableView.bounds.size.width ) - 32, height: 30))
+        label.textColor = UIColor.black
         label.font = UIFont(name: "System", size: 18)
         
         switch section{
@@ -132,6 +152,10 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
         header.addSubview(label)
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     /*
     // MARK: - Navigation

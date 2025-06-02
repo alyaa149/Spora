@@ -236,4 +236,18 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         lottieView = nil
         collectionView.backgroundView = nil
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)
+        let teamDetailsVC = teamStoryBoard.instantiateViewController(identifier: "teamsDetails") as! TeamsDetailsViewController
+        switch indexPath.section {
+        case 2:
+            let team = teams[indexPath.row]
+            let teamDetailsPresenter = TeamsDetailsPresenter(team: team, teamDetailsView: teamDetailsVC, sportName: self.presenter.sportName)
+            teamDetailsVC.presenter = teamDetailsPresenter
+            self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+        default:
+            break
+        }
+    }
 }
