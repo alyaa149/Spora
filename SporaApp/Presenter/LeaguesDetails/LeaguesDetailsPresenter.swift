@@ -16,8 +16,8 @@ class LeagueDetailsPresenter {
         self.service = service
     }
     
-    func loadLeagueDetails(leagueId: Int) {
-        service.getFixtures(leagueId: leagueId) { allEvents in
+    func loadLeagueDetails(sportName:String, leagueId: Int) {
+        service.getFixtures(sportName: sportName, leagueId: leagueId) { allEvents in
             let upcoming = allEvents.filter { $0.event_final_result == nil }
             let latest = allEvents.filter { $0.event_final_result != nil }
             

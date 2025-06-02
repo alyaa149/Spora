@@ -16,6 +16,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     var latestEvents: [Event] = []
     var presenter: LeagueDetailsPresenter!
     var leagueId: Int!
+    var sportName:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,8 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         collectionView.register(nib1, forCellWithReuseIdentifier: "section1")
         collectionView.register(nib2, forCellWithReuseIdentifier: "section2")
         
-        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
-           collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
+//        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
+//           collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
         
         let teamsNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
 
@@ -37,19 +38,19 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
 
         collectionView.collectionViewLayout = createCompositionalLayout()
         presenter = LeagueDetailsPresenter(view: self)
-        presenter.loadLeagueDetails(leagueId: leagueId)
+        presenter.loadLeagueDetails(sportName: sportName,leagueId: leagueId)
     }
     
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
         collectionView.reloadSections(IndexSet(integer: 0))
-        showLottieAnimationIfNeeded()
+      //  showLottieAnimationIfNeeded()
     }
     
     func displayLatestEvents(_ events: [Event]) {
         self.latestEvents = events
         collectionView.reloadSections(IndexSet(integer: 1))
-        showLottieAnimationIfNeeded()
+      //  showLottieAnimationIfNeeded()
     }
     
     func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
@@ -95,7 +96,8 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return upcomingEvents.isEmpty ? 1 : upcomingEvents.count
+           return  max(upcomingEvents.count,0)
+//            return upcomingEvents.isEmpty ? 1 : upcomingEvents.count
         case 1:
             return max(latestEvents.count, 0)
         default:
@@ -106,15 +108,15 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if upcomingEvents.isEmpty {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LottieCell", for: indexPath) as! LottieeCollectionViewCell
-                return cell
-            } else {
+//            if upcomingEvents.isEmpty {
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LottieCell", for: indexPath) as! LottieeCollectionViewCell
+//                return cell
+//            } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section1", for: indexPath) as! UpComingEventsCollectionViewCell
                 let event = upcomingEvents[indexPath.item]
                 configure(cell: cell, with: event, section: 0)
                 return cell
-            }
+//            }
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section2", for: indexPath) as! UpComingEventsCollectionViewCell

@@ -79,6 +79,7 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
         let leaguesVC = LeaguesTableViewController(nibName: "LeaguesTableViewController", bundle: nil)
         let leaguesPresenter = LeaguesPresenter(leaguesVC: leaguesVC, sport: sport.lowercased())
         leaguesVC.presenter = leaguesPresenter
+        leaguesVC.sportName = sports[indexPath.row].0.lowercased()
         self.navigationController?.pushViewController(leaguesVC, animated: true)
     }
  
