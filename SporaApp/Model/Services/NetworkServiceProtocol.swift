@@ -13,4 +13,5 @@ protocol NetworkServiceProtocol {
     func getFixtures(leagueId: Int, completion: @escaping ([Event]) -> Void)
 
 
+    func getTeams(sportName: String, leagueID: Int, handler: @escaping (AllTeamsResponse)->Void)
 }

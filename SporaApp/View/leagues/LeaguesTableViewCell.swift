@@ -10,13 +10,14 @@ import UIKit
 class LeaguesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var leagueName: UILabel!
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var leagueImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        contentView.layer.borderColor = UIColor.green.cgColor
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.cornerRadius = 8.0
-        contentView.layer.masksToBounds = true
+        cardView.layer.cornerRadius = 10
+        cardView.layer.borderWidth = 1
+        cardView.layer.borderColor = UIColor(red: 185/255, green: 212/255, blue: 170/255, alpha: 1.0).cgColor
+        cardView.layer.masksToBounds = true
         // Initialization code
     }
 
