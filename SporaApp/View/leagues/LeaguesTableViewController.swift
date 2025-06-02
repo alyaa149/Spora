@@ -111,8 +111,10 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
 
         let detailsStoryboard = UIStoryboard(name: "Details", bundle: nil)
         let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
-        detailsVC.sportName = sportName
-        detailsVC.leagueId = leagueId
+
+
+        let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: presenter.sport, leagueId: leagueId)
+        detailsVC.presenter = detailsPresenter
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 

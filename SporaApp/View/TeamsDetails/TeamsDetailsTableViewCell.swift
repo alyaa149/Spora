@@ -12,8 +12,7 @@ class TeamsDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var playerNumber: UILabel!
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var playerImage: UIImageView!
-    @IBOutlet weak var cardView: UIView!
-    
+    @IBOutlet weak var noLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = 10
