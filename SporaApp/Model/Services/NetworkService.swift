@@ -49,14 +49,14 @@ class NetworkService : NetworkServiceProtocol {
     
 
     func getTeams(sportName: String, leagueID: Int, handler: @escaping (AllTeamsResponse)->Void){
-        AF.request("https://apiv2.allsportsapi.com/\(sportName)/?&met=Teams&\(leagueID)=4&APIkey=\(APIKeys.firstKey)")
+        AF.request("https://apiv2.allsportsapi.com/\(sportName)/?&met=Teams&leagueId=\(leagueID)=4&APIkey=\(APIKeys.firstKey)")
             .responseDecodable(of: AllTeamsResponse.self) { response in
                 switch response.result {
                 case .success(let items):
                     handler(items)
                     print(items.result.count)
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("error is : \(error.localizedDescription)")
                 }
             }
         

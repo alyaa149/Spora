@@ -14,6 +14,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     var lottieView: LottieAnimationView?
     var upcomingEvents: [Event] = []
     var latestEvents: [Event] = []
+    var teams: [TeamModel] = []
     var presenter: LeagueDetailsPresenter!
     var leagueId: Int!
     
@@ -26,18 +27,19 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         collectionView.register(nib1, forCellWithReuseIdentifier: "section1")
         collectionView.register(nib2, forCellWithReuseIdentifier: "section2")
         
-        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
-           collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
+//        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
+//        collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
         
         let teamsNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
+        collectionView.register(teamsNib, forCellWithReuseIdentifier: "section3")
 
 //        collectionView.register(SectionHeaderView.self,
 //                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
 //                                withReuseIdentifier: SectionHeaderView.identifier)
 
         collectionView.collectionViewLayout = createCompositionalLayout()
-        presenter = LeagueDetailsPresenter(view: self)
-        presenter.loadLeagueDetails(leagueId: leagueId)
+        presenter.loadLeagueDetails()
+        presenter.getTeamsFromAPI()
     }
     
     func displayUpcomingEvents(_ events: [Event]) {
@@ -47,8 +49,14 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     }
     
     func displayLatestEvents(_ events: [Event]) {
-        self.latestEvents = events
+        self.latestEvents = Array(events.prefix(10))
         collectionView.reloadSections(IndexSet(integer: 1))
+        showLottieAnimationIfNeeded()
+    }
+    
+    func displayTeams(_ teams: [TeamModel]) {
+        self.teams = teams
+        collectionView.reloadSections(IndexSet(integer: 2))
         showLottieAnimationIfNeeded()
     }
     
@@ -57,7 +65,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             switch sectionIndex {
             case 0: return self.createHorizontalSection()
             case 1: return self.createVerticalSection()
-            default: return nil
+            default: return self.teamsSection()
             }
         }
     }
@@ -88,42 +96,69 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         return section
     }
     
+    func teamsSection()->NSCollectionLayoutSection{
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(120), heightDimension: .absolute(150))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 16, bottom: 8, trailing: 0)
+            section.orthogonalScrollingBehavior = .continuous
+            return section
+        }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return upcomingEvents.isEmpty ? 1 : upcomingEvents.count
+            return max(upcomingEvents.count, 0)
         case 1:
             return max(latestEvents.count, 0)
         default:
-            return 0
+            return max(teams.count, 0)
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            if upcomingEvents.isEmpty {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LottieCell", for: indexPath) as! LottieeCollectionViewCell
-                return cell
-            } else {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section1", for: indexPath) as! UpComingEventsCollectionViewCell
+//            if upcomingEvents.isEmpty {
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LottieCell", for: indexPath) as! LottieeCollectionViewCell
+//                return cell
+//            } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section1", for: indexPath) as? UpComingEventsCollectionViewCell else {
+                fatalError("No Cell")
+            }
+            
                 let event = upcomingEvents[indexPath.item]
                 configure(cell: cell, with: event, section: 0)
                 return cell
-            }
+            //}
             
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section2", for: indexPath) as! UpComingEventsCollectionViewCell
+            guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section2", for: indexPath) as? UpComingEventsCollectionViewCell else {
+                fatalError("No Cell")
+                
+            }
             let event = latestEvents.isEmpty ? nil : latestEvents[indexPath.item]
             configure(cell: cell, with: event, section: 1)
             return cell
             
         default:
-            fatalError("Unexpected section")
+            guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as? TeamsCollectionViewCell else {
+                fatalError("No Cell")
+            }
+            
+            let team = teams[indexPath.row]
+            cell.teamName.text = team.teamName
+            let url = URL(string: team.teamLogo ?? "")
+            cell.teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+            return cell
         }
     }
     

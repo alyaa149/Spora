@@ -10,13 +10,17 @@ import Foundation
 class LeagueDetailsPresenter {
     weak var view: LeagueDetailsViewProtocol?
     private let service: NetworkServiceProtocol
+    var sportName : String!
+    var leagueId : Int!
     
-    init(view: LeagueDetailsViewProtocol, service: NetworkServiceProtocol = NetworkService()) {
+    init(view: LeagueDetailsViewProtocol, sportName: String, leagueId: Int) {
         self.view = view
-        self.service = service
+        self.service = NetworkService()
+        self.sportName = sportName
+        self.leagueId = leagueId
     }
     
-    func loadLeagueDetails(leagueId: Int) {
+    func loadLeagueDetails() {
         service.getFixtures(leagueId: leagueId) { allEvents in
             let upcoming = allEvents.filter { $0.event_final_result == nil }
             let latest = allEvents.filter { $0.event_final_result != nil }
@@ -26,6 +30,14 @@ class LeagueDetailsPresenter {
             DispatchQueue.main.async {
                 self.view?.displayUpcomingEvents(upcoming)
                 self.view?.displayLatestEvents(latest)
+            }
+        }
+    }
+    
+    func getTeamsFromAPI(){
+        service.getTeams(sportName: sportName, leagueID: leagueId) { teams in
+            DispatchQueue.main.async {
+                self.view?.displayTeams(teams.result)
             }
         }
     }
