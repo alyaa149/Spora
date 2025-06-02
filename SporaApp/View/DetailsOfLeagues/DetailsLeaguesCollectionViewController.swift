@@ -41,6 +41,28 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                                 withReuseIdentifier: "SectionHeaderView")
 
         collectionView.collectionViewLayout = createCompositionalLayout()
+        setupNavigationBar()
+
+    }
+    private func setupNavigationBar() {
+        let favoriteButton = UIBarButtonItem(
+            image: UIImage(systemName: "heart"),
+            style: .plain,
+            target: self,
+            action: #selector(favoriteTapped)
+        )
+        favoriteButton.tintColor = .green
+
+        navigationItem.rightBarButtonItem = favoriteButton
+    }
+    @objc private func favoriteTapped() {
+        print("Favorite icon tapped")
+        if let currentImage = navigationItem.rightBarButtonItem?.image,
+           currentImage == UIImage(systemName: "heart") {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
+        } else {
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
+        }
     }
 
     
