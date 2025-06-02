@@ -107,8 +107,8 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 40))
-        var label = UILabel(frame: CGRect(x: 16, y: 15, width: (self.tableView.bounds.size.width ) - 32, height: 30))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 40))
+        let label = UILabel(frame: CGRect(x: 16, y: 15, width: (self.tableView.bounds.size.width ) - 32, height: 30))
         label.textColor = UIColor(red: 185/255, green: 212/255, blue: 170/255, alpha: 1.0)
         label.font = UIFont(name: "System", size: 18)
         
