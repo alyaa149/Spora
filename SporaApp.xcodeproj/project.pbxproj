@@ -15,6 +15,9 @@
 		2220BC7E2DEA6DFA008BF1DE /* LeaguesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2220BC7C2DEA6DFA008BF1DE /* LeaguesTableViewController.xib */; };
 		2220BC802DEA6F34008BF1DE /* LeaguesViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220BC7F2DEA6F34008BF1DE /* LeaguesViewControllerProtocol.swift */; };
 		2220BC832DEA7350008BF1DE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2220BC822DEA7350008BF1DE /* Kingfisher */; };
+		2224A0B82DED07E80057BDFF /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224A0B72DED07E70057BDFF /* CollectionReusableView.swift */; };
+		2224A0BD2DED257A0057BDFF /* LottieeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224A0BB2DED257A0057BDFF /* LottieeCollectionViewCell.swift */; };
+		2224A0BE2DED257A0057BDFF /* LottieeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2224A0BC2DED257A0057BDFF /* LottieeCollectionViewCell.xib */; };
 		223321F42DE8783F00959ADB /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223321F32DE8783F00959ADB /* NetworkService.swift */; };
 		223322042DE8AE7000959ADB /* CategoryHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */; };
 		223322062DE8AEC600959ADB /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223322052DE8AEC600959ADB /* SplashPresenter.swift */; };
@@ -40,6 +43,7 @@
 		229243C42DE5A983009A4F96 /* SporaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243C32DE5A983009A4F96 /* SporaAppTests.swift */; };
 		229243CE2DE5A983009A4F96 /* SporaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */; };
 		229243D02DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */; };
+		22CF1FCA2DECF34F009B8C47 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 22CF1FC92DECF34D009B8C47 /* empty.json */; };
 		9508AF420E68438930E1BA33 /* Pods_SporaApp_SporaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A042792D581E0860B5F996 /* Pods_SporaApp_SporaAppUITests.framework */; };
 		A01B2CD32DECE71C00958700 /* TeamsDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B2CD22DECE71C00958700 /* TeamsDetailsPresenter.swift */; };
 		A01CA4802DEC6B5900E1C921 /* TeamsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01CA47F2DEC6B5800E1C921 /* TeamsModel.swift */; };
@@ -83,6 +87,9 @@
 		2220BC7B2DEA6DF9008BF1DE /* LeaguesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaguesTableViewCell.xib; sourceTree = "<group>"; };
 		2220BC7C2DEA6DFA008BF1DE /* LeaguesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaguesTableViewController.xib; sourceTree = "<group>"; };
 		2220BC7F2DEA6F34008BF1DE /* LeaguesViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaguesViewControllerProtocol.swift; sourceTree = "<group>"; };
+		2224A0B72DED07E70057BDFF /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		2224A0BB2DED257A0057BDFF /* LottieeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2224A0BC2DED257A0057BDFF /* LottieeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieeCollectionViewCell.xib; sourceTree = "<group>"; };
 		223321F32DE8783F00959ADB /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		223322032DE8AE7000959ADB /* CategoryHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryHomePresenter.swift; path = SporaApp/CategoryHomePresenter.swift; sourceTree = SOURCE_ROOT; };
 		223322052DE8AEC600959ADB /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashPresenter.swift; path = SporaApp/SplashPresenter.swift; sourceTree = SOURCE_ROOT; };
@@ -112,6 +119,7 @@
 		229243C92DE5A983009A4F96 /* SporaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SporaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229243CD2DE5A983009A4F96 /* SporaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITests.swift; sourceTree = "<group>"; };
 		229243CF2DE5A983009A4F96 /* SporaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SporaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		22CF1FC92DECF34D009B8C47 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		5C4D46B545E17AA4436C6E43 /* Pods_SporaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7311FAB2242BCE0A4619BD50 /* Pods_SporaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SporaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01B2CD22DECE71C00958700 /* TeamsDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -289,9 +297,11 @@
 			isa = PBXGroup;
 			children = (
 				2265FEC12DEC70DE0017B3F7 /* xibFiles */,
-				22577D822DEBC191002BF2A1 /* DetailsLeaguesCollectionViewController.swift */,
 				22577D802DEBB729002BF2A1 /* Details.storyboard */,
+				2224A0BB2DED257A0057BDFF /* LottieeCollectionViewCell.swift */,
+				22577D822DEBC191002BF2A1 /* DetailsLeaguesCollectionViewController.swift */,
 				2265FEB92DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.swift */,
+				2224A0B72DED07E70057BDFF /* CollectionReusableView.swift */,
 				A01CA4882DECA1F900E1C921 /* TeamsCollectionViewCell.swift */,
 			);
 			path = DetailsOfLeagues;
@@ -310,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				2265FEBA2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib */,
+				2224A0BC2DED257A0057BDFF /* LottieeCollectionViewCell.xib */,
 				A01CA4892DECA1F900E1C921 /* TeamsCollectionViewCell.xib */,
 			);
 			path = xibFiles;
@@ -339,6 +350,7 @@
 		229243A82DE5A979009A4F96 /* SporaApp */ = {
 			isa = PBXGroup;
 			children = (
+				22CF1FC92DECF34D009B8C47 /* empty.json */,
 				A073C5192DEB623700CF39DE /* splash.json */,
 				223321EC2DE876D100959ADB /* Presenter */,
 				223322022DE8AABC00959ADB /* View */,
@@ -549,11 +561,13 @@
 				229243B92DE5A982009A4F96 /* LaunchScreen.storyboard in Resources */,
 				A01CA48E2DECA88A00E1C921 /* TeamsDetails.storyboard in Resources */,
 				229243B62DE5A982009A4F96 /* Assets.xcassets in Resources */,
+				22CF1FCA2DECF34F009B8C47 /* empty.json in Resources */,
 				2265FEBC2DEC70BC0017B3F7 /* UpComingEventsCollectionViewCell.xib in Resources */,
 				22577D812DEBB72A002BF2A1 /* Details.storyboard in Resources */,
 				223322212DE90E2300959ADB /* FavoritesTableViewController.xib in Resources */,
 				2220BC7E2DEA6DFA008BF1DE /* LeaguesTableViewController.xib in Resources */,
 				2220BC6D2DEA4E23008BF1DE /* Main.storyboard in Resources */,
+				2224A0BE2DED257A0057BDFF /* LottieeCollectionViewCell.xib in Resources */,
 				2233221C2DE905A000959ADB /* TabBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,6 +685,8 @@
 				A0AF51AD2DE88C6400B72BD1 /* LeaguesTableViewCell.swift in Sources */,
 				A01CA48A2DECA1F900E1C921 /* TeamsCollectionViewCell.swift in Sources */,
 				A0AF51B72DE8A73D00B72BD1 /* LeaugeModel.swift in Sources */,
+				2224A0B82DED07E80057BDFF /* CollectionReusableView.swift in Sources */,
+				2224A0BD2DED257A0057BDFF /* LottieeCollectionViewCell.swift in Sources */,
 				A0AF51A82DE8877200B72BD1 /* LeaguesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
