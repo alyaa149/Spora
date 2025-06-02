@@ -19,30 +19,30 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     var tennisPlayers : [TennisPlayerModel] = []
     var presenter: LeagueDetailsPresenter!
     var leagueId: Int!
+    var sportName:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib1 = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
-        let nib2 = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
+        let eventNib = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
+        collectionView.register(eventNib, forCellWithReuseIdentifier: "eventCell")
         
-        collectionView.register(nib1, forCellWithReuseIdentifier: "section1")
-        collectionView.register(nib2, forCellWithReuseIdentifier: "section2")
-        
-//        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
-//        collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
-        
+        let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
+        collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell0")
+        collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell1")
         let teamsNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
         collectionView.register(teamsNib, forCellWithReuseIdentifier: "section3")
-
-//        collectionView.register(SectionHeaderView.self,
-//                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//                                withReuseIdentifier: SectionHeaderView.identifier)
-
-        collectionView.collectionViewLayout = createCompositionalLayout()
+         
         presenter.loadLeagueDetails()
         presenter.getTeamsFromAPI()
+        let headerNib = UINib(nibName: "SectionHeaderView", bundle: nil)
+        collectionView.register(SectionHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "SectionHeaderView")
+
+        collectionView.collectionViewLayout = createCompositionalLayout()
     }
+
     
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
@@ -91,16 +91,42 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     }
     
     private func createHorizontalSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(200), heightDimension: .absolute(200))
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(300),
+            heightDimension: .absolute(200)
+        )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(250))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(250)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
         group.interItemSpacing = .fixed(10)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 10,
+            leading: 16,
+            bottom: 10,
+            trailing: 16
+        )
+        let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(50)
+            )
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            section.boundarySupplementaryItems = [header]
+        
         return section
     }
     
@@ -113,6 +139,16 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 16, bottom: 10, trailing: 16)
+        let headerSize = NSCollectionLayoutSize(
+              widthDimension: .fractionalWidth(1.0),
+              heightDimension: .absolute(50)
+          )
+          let header = NSCollectionLayoutBoundarySupplementaryItem(
+              layoutSize: headerSize,
+              elementKind: UICollectionView.elementKindSectionHeader,
+              alignment: .top
+          )
+          section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -151,17 +187,16 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             return max(teams.count, 0)
         }
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-//            if upcomingEvents.isEmpty {
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LottieCell", for: indexPath) as! LottieeCollectionViewCell
-//                return cell
-//            } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section1", for: indexPath) as? UpComingEventsCollectionViewCell else {
-                fatalError("No Cell")
-            }
+            if upcomingEvents.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell0", for: indexPath) as! LottieeCollectionViewCell
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
             if presenter.sportName == "tennis"{
                 let event = tennisEvents[indexPath.row]
                 configureTennis(cell: cell, with: event, section: 0)
@@ -169,8 +204,6 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 let event = upcomingEvents[indexPath.item]
                 configure(cell: cell, with: event, section: 0)
             }
-            return cell
-            //}
             
         case 1:
             if presenter.sportName == "tennis"{
@@ -204,10 +237,10 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             return cell
         }
     }
-    
+
     func configure(cell: UpComingEventsCollectionViewCell, with event: Event?, section: Int) {
         guard let event = event else {
-            cell.team1name.text = "No data available"
+            cell.team1name.text = ""
             cell.team2name.text = ""
             cell.score.text = ""
             cell.date.text = ""
@@ -232,7 +265,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             cell.team2Img.kf.setImage(with: team2Url)
         }
         
-        cell.layer.borderColor = (section == 0 ? UIColor.systemGreen : UIColor.systemOrange).cgColor
+        cell.layer.borderColor = (section == 0 ? UIColor.systemOrange : UIColor.systemGreen).cgColor
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 12
     }
@@ -311,6 +344,34 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         lottieView = nil
         collectionView.backgroundView = nil
     }
+
+override func collectionView(
+    _ collectionView: UICollectionView,
+    viewForSupplementaryElementOfKind kind: String,
+    at indexPath: IndexPath
+) -> UICollectionReusableView {
+    guard kind == UICollectionView.elementKindSectionHeader,
+          let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: "SectionHeaderView",
+            for: indexPath
+          ) as? SectionHeaderView else {
+        return UICollectionReusableView()
+    }
+    
+    switch indexPath.section {
+    case 0:
+        header.titleLabel.text = "Upcoming Events"
+        header.titleLabel.textColor = .systemOrange
+    case 1:
+        header.titleLabel.text = "Latest Events"
+        header.titleLabel.textColor = .systemGreen
+    default:
+        header.titleLabel.text = "Teams"
+    }
+    
+    return header
+}
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)

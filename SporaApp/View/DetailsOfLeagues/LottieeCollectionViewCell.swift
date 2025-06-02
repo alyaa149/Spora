@@ -25,16 +25,13 @@ class LottieeCollectionViewCell: UICollectionViewCell {
         // Remove previous animation if exists
         animationView?.removeFromSuperview()
         
-        // Create new animation view
         animationView = LottieAnimationView(name: "empty")
         animationView?.contentMode = .scaleAspectFit
         animationView?.loopMode = .loop
         
         if let animationView = animationView {
-            // Add to cell's content view
             contentView.addSubview(animationView)
             
-            // Set constraints
             animationView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 animationView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),

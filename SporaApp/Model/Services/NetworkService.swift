@@ -26,9 +26,11 @@ class NetworkService : NetworkServiceProtocol {
                 }
             }
     }
+  
     func getFixtures(sportName: String, leagueId: Int, completion: @escaping ([Event]) -> Void) {
           let dateFormatter = DateFormatter()
           dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
           let to = dateFormatter.string(from: Date())
           let from = dateFormatter.string(from: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
 

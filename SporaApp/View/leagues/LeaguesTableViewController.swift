@@ -12,7 +12,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
     
     var presenter : LeaguesPresenter!
     var leagues : [LeagueModel] = []
-    
+    var sportName:String!
     func renderData(res: LeaguesResponse) {
         DispatchQueue.main.async {
             self.leagues = res.result
@@ -111,6 +111,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
 
         let detailsStoryboard = UIStoryboard(name: "Details", bundle: nil)
         let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
+
 
         let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: presenter.sport, leagueId: leagueId)
         detailsVC.presenter = detailsPresenter
