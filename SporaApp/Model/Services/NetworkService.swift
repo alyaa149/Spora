@@ -8,6 +8,8 @@
 
 import Foundation
 import Alamofire
+import UIKit
+import CoreData
 
 class NetworkService : NetworkServiceProtocol {
     

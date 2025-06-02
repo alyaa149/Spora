@@ -1,11 +1,12 @@
 //
-//  LeaugeDetailsModel.swift
+//  LeaguesDetailsModel.swift
 //  SporaApp
 //
-//  Created by macOS on 01/06/2025.
+//  Created by Habiba Elhadi on 01/06/2025.
 //
 
 import Foundation
+
 struct EventResponse: Decodable {
     let result: [Event]
 }

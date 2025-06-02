@@ -15,7 +15,6 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
     
     func renderData(res: LeaguesResponse) {
         DispatchQueue.main.async {
-            print("----\(res.result[0].leagueName)")
             self.leagues = res.result
             self.tableView.reloadData()
         }

@@ -28,7 +28,13 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         
         let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
            collectionView.register(lottieNib, forCellWithReuseIdentifier: "section1")
-           
+        
+        let teamsNib = UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
+
+//        collectionView.register(SectionHeaderView.self,
+//                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+//                                withReuseIdentifier: SectionHeaderView.identifier)
+
         collectionView.collectionViewLayout = createCompositionalLayout()
         presenter = LeagueDetailsPresenter(view: self)
         presenter.loadLeagueDetails(leagueId: leagueId)
