@@ -132,22 +132,24 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
         label.textColor = UIColor.black
         label.font = UIFont(name: "System", size: 18)
         
-        switch section{
-        case 0:
-            label.text = "Coach"
-            break
-        case 1:
-            label.text = "Goalkeepers"
-            break
-        case 2:
-            label.text = "Defenders"
-            break
-        case 3:
-            label.text = "Midfielders"
-            break
-        default:
-            label.text = "Forwards"
-            break
+        if presenter.sportName == "football" {
+            switch section{
+            case 0:
+                label.text = "Coach"
+                break
+            case 1:
+                label.text = "Goalkeepers"
+                break
+            case 2:
+                label.text = "Defenders"
+                break
+            case 3:
+                label.text = "Midfielders"
+                break
+            default:
+                label.text = "Forwards"
+                break
+            }
         }
         
         header.addSubview(label)

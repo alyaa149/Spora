@@ -26,13 +26,13 @@ class NetworkService : NetworkServiceProtocol {
                 }
             }
     }
-    func getFixtures(leagueId: Int, completion: @escaping ([Event]) -> Void) {
+    func getFixtures(sportName: String, leagueId: Int, completion: @escaping ([Event]) -> Void) {
           let dateFormatter = DateFormatter()
           dateFormatter.dateFormat = "yyyy-MM-dd"
           let to = dateFormatter.string(from: Date())
           let from = dateFormatter.string(from: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
 
-          let url = "https://apiv2.allsportsapi.com/football/?met=Fixtures&leagueId=\(leagueId)&from=\(from)&to=\(to)&APIkey=\(APIKeys.firstKey)"
+          let url = "https://apiv2.allsportsapi.com/\(sportName)/?met=Fixtures&leagueId=\(leagueId)&from=\(from)&to=\(to)&APIkey=\(APIKeys.firstKey)"
 
           AF.request(url).responseDecodable(of: EventResponse.self) { response in
               switch response.result {
@@ -59,6 +59,50 @@ class NetworkService : NetworkServiceProtocol {
                     print("error is : \(error.localizedDescription)")
                 }
             }
+    }
+    
+    func getTennisPlayersByLeaguesID(leagueID: Int, handler: @escaping (TennisPlayerResponse)->Void){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
+        let currentDate = Date()
+        let oneYearBefore = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)!
+        
+        let fromDate = dateFormatter.string(from: oneYearBefore)
+        let toDate = dateFormatter.string(from: currentDate)
+        
+        AF.request("https://apiv2.allsportsapi.com/tennis/?met=Fixtures&from=2024-05-31&to=2025-05-31&leagueId=\(leagueID)&APIkey=\(APIKeys.firstKey)")
+            .responseDecodable(of: TennisPlayerResponse.self) { response in
+                switch response.result {
+                case .success(let items):
+                    handler(items)
+                    print(items)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        
+    }
+    
+    func getTennisPlayers(handler: @escaping (TennisPlayerResponse)->Void){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let currentDate = Date()
+        let oneYearBefore = Calendar.current.date(byAdding: .year, value: 1, to: currentDate)!
+        
+        let fromDate = dateFormatter.string(from: oneYearBefore)
+        let toDate = dateFormatter.string(from: currentDate)
+        
+        AF.request("https://apiv2.allsportsapi.com/tennis/?met=Fixtures&from=2025-06-02&to=2026-06-02&APIkey=\(APIKeys.firstKey)")
+            .responseDecodable(of: TennisPlayerResponse.self) { response in
+                switch response.result {
+                case .success(let items):
+                    handler(items)
+                    print(items)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
     }
 }
