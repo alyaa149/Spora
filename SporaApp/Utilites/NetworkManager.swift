@@ -6,37 +6,20 @@
 //
 
 import Foundation
-import Reachability
+import Network
 
 class NetworkManager {
-    static let shared = NetworkManager()
-
-    private let reachability = try! Reachability()
-
-    var isConnected: Bool {
-        return reachability.connection != .unavailable
-    }
-
-    private init() {
-        startMonitoring()
-    }
-
-    private func startMonitoring() {
-        reachability.whenReachable = { _ in
-            print("Network reachable")
+    static func isInternetAvailable(completion: @escaping (Bool) -> Void) {
+            let monitor = NWPathMonitor()
+            let queue = DispatchQueue(label: "InternetConnectionMonitor")
+            monitor.pathUpdateHandler = { path in
+                if path.status == .satisfied {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+                monitor.cancel()
+            }
+            monitor.start(queue: queue)
         }
-        reachability.whenUnreachable = { _ in
-            print("Network not reachable")
-        }
-
-        do {
-            try reachability.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
-    }
-
-    deinit {
-        reachability.stopNotifier()
-    }
 }

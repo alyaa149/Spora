@@ -71,7 +71,18 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
             let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: selectedLeague.sportName, leagueId: leagueId, league: selectedLeague)
 
             detailsVC.presenter = detailsPresenter
-            navigationController?.pushViewController(detailsVC, animated: true)
+        
+        NetworkManager.isInternetAvailable { isAvailable in
+            DispatchQueue.main.async {
+                if isAvailable {
+                    self.navigationController?.pushViewController(detailsVC, animated: true)
+                }else{
+                    let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
      //   } else {
       //      presenter.view?.showNoInternetAlert()
       //  }

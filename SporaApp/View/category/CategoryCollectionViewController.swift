@@ -81,7 +81,19 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
         let leaguesPresenter = LeaguesPresenter(leaguesVC: leaguesVC, sport: sport.lowercased())
         leaguesVC.presenter = leaguesPresenter
         leaguesVC.sportName = sports[indexPath.row].0.lowercased()
-        self.navigationController?.pushViewController(leaguesVC, animated: true)
+        
+        NetworkManager.isInternetAvailable { isAvailable in
+            DispatchQueue.main.async {
+                if isAvailable {
+                    self.navigationController?.pushViewController(leaguesVC, animated: true)
+                }else{
+                    let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+        
     }
  
 }
