@@ -47,7 +47,6 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
         return leagues.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LeaguesTableViewCell
         let league = leagues[indexPath.row]
@@ -60,17 +59,17 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedLeague = leagues[indexPath.row]
         let leagueId = selectedLeague.league_key ?? 0
 
-      //  if presenter.isInternetAvailable() {
-            let detailsStoryboard = UIStoryboard(name: "Details", bundle: nil)
-            let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
+        let detailsStoryboard = UIStoryboard(name: "Details", bundle: nil)
+        let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
 
-            let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: selectedLeague.sportName, leagueId: leagueId, league: selectedLeague)
+        let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: selectedLeague.sportName, leagueId: leagueId, league: selectedLeague)
 
-            detailsVC.presenter = detailsPresenter
+        detailsVC.presenter = detailsPresenter
         
         NetworkManager.isInternetAvailable { isAvailable in
             DispatchQueue.main.async {
@@ -83,10 +82,8 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
                 }
             }
         }
-     //   } else {
-      //      presenter.view?.showNoInternetAlert()
-      //  }
     }
+    
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
@@ -101,7 +98,4 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
             present(alert, animated: true)
         }
     }
-
-
-
 }
