@@ -6,12 +6,35 @@
 //
 
 import UIKit
+import Lottie
 
 class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol{
+    
+    
+    private var emptyAnimationView: LottieAnimationView = {
+        let animationView = LottieAnimationView(name: "empty")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.isHidden = true
+        return animationView
+    }()
+    var leagues : [LeagueModel] = []
+    private var presenter: FavoriteLeaguesPresenter!
+
+    
+    
     func showFavoriteLeagues(_ leagues: [LeagueModel]) {
         self.leagues = leagues
         print(leagues.count)
         tableView.reloadData()
+            if leagues.isEmpty {
+                emptyAnimationView.isHidden = false
+                emptyAnimationView.play()
+            } else {
+                emptyAnimationView.stop()
+                emptyAnimationView.isHidden = true
+            }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,11 +48,16 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
         present(alert, animated: true)
     }
     
-    var leagues : [LeagueModel] = []
-    private var presenter: FavoriteLeaguesPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(emptyAnimationView)
+        NSLayoutConstraint.activate([
+            emptyAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyAnimationView.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -100),
+            emptyAnimationView.widthAnchor.constraint(equalToConstant: 200),
+            emptyAnimationView.heightAnchor.constraint(equalToConstant: 200)
+        ])
         presenter = FavoriteLeaguesPresenter(view: self)
         presenter.fetchFavoriteLeagues()
         let nib = UINib(nibName: "LeaguesTableViewCell", bundle: nil)
@@ -98,4 +126,5 @@ class FavTableViewController: UITableViewController ,FavoriteLeaguesViewProtocol
             present(alert, animated: true)
         }
     }
+
 }

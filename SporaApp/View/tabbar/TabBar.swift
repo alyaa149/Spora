@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBar: UITabBarController {
+class TabBar: UITabBarController,UITabBarControllerDelegate {
 
     var homeVC: CategoryCollectionViewController
 
@@ -47,5 +47,12 @@ class TabBar: UITabBarController {
         tabBar.unselectedItemTintColor = UIColor.gray
 
         tabBar.barTintColor = .white
+    }
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if self.selectedIndex == 0 {
+            self.navigationItem.title = "Sports Categories"
+        }else if self.selectedIndex == 1{
+            self.navigationItem.title = "Favouries Leagues"
+        }
     }
 }

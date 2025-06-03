@@ -65,7 +65,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
     }
     
     @objc private func favoriteTapped() {
-           presenter.toggleFavorite(from:self)
+        presenter.toggleFavorite(from:self)
     }
     
     func displayUpcomingEvents(_ events: [Event]) {
