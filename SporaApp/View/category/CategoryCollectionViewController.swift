@@ -9,13 +9,11 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
-    let sports = [
-           ("Football", UIImage(named: "football")),
-           ("Basketball", UIImage(named: "basketball")),
-           ("Tennis", UIImage(named: "tennis")),
-           ("Cricket", UIImage(named: "cricket"))
-       ]
+class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout, CategoryCollectionViewControllerProtocol {
+    
+    var sports : [(String,UIImage)] = []
+    var presenter : CategoriesPresenter!
+    
      override func viewDidLoad() {
          super.viewDidLoad()
          print("Nav controller: \(navigationController != nil ? "Exists" : "Nil")")
@@ -24,10 +22,13 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
          let nib = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
          collectionView.register(nib, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
        
-
+         presenter.transferSportsToCategoryView()
      }
 
-
+    func renderSportsToView(sports: [(String,UIImage)]){
+        self.sports = sports
+        self.collectionView.reloadData()
+    }
 
      override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          return sports.count
