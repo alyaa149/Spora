@@ -9,13 +9,11 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
-    let sports = [
-           ("Football", UIImage(named: "football")),
-           ("Basketball", UIImage(named: "basketball")),
-           ("Tennis", UIImage(named: "tennis")),
-           ("Cricket", UIImage(named: "cricket"))
-       ]
+class CategoryCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout, CategoryCollectionViewControllerProtocol {
+    
+    var sports : [(String,UIImage)] = []
+    var presenter : CategoriesPresenter!
+    
      override func viewDidLoad() {
          super.viewDidLoad()
          print("Nav controller: \(navigationController != nil ? "Exists" : "Nil")")
@@ -24,10 +22,13 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
          let nib = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
          collectionView.register(nib, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
        
-
+         presenter.transferSportsToCategoryView()
      }
 
-
+    func renderSportsToView(sports: [(String,UIImage)]){
+        self.sports = sports
+        self.collectionView.reloadData()
+    }
 
      override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
          return sports.count
@@ -80,7 +81,19 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
         let leaguesPresenter = LeaguesPresenter(leaguesVC: leaguesVC, sport: sport.lowercased())
         leaguesVC.presenter = leaguesPresenter
         leaguesVC.sportName = sports[indexPath.row].0.lowercased()
-        self.navigationController?.pushViewController(leaguesVC, animated: true)
+        
+        NetworkManager.isInternetAvailable { isAvailable in
+            DispatchQueue.main.async {
+                if isAvailable {
+                    self.navigationController?.pushViewController(leaguesVC, animated: true)
+                }else{
+                    let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+        
     }
  
 }

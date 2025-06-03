@@ -113,10 +113,19 @@ class LeaguesTableViewController: UITableViewController,LeaguesViewControllerPro
         let detailsVC = detailsStoryboard.instantiateViewController(withIdentifier: "DetailsLeaguesCollectionViewController") as! DetailsLeaguesCollectionViewController
 
 
-        let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: presenter.sport, leagueId: leagueId)
+        let detailsPresenter = LeagueDetailsPresenter(view: detailsVC, sportName: presenter.sport, leagueId: leagueId, league: selectedLeague)
         detailsVC.presenter = detailsPresenter
-        navigationController?.pushViewController(detailsVC, animated: true)
+        
+        NetworkManager.isInternetAvailable { isAvailable in
+            DispatchQueue.main.async {
+                if isAvailable {
+                    self.navigationController?.pushViewController(detailsVC, animated: true)
+                }else{
+                    let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     }
-
-    
 }

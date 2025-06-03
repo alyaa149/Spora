@@ -10,6 +10,11 @@ import Kingfisher
 import Lottie
 
 class DetailsLeaguesCollectionViewController: UICollectionViewController, LeagueDetailsViewProtocol, UICollectionViewDelegateFlowLayout {
+    func updateFavoriteIcon(isFavorite: Bool) {
+        let icon = isFavorite ? "heart.fill" : "heart"
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: icon)
+    }
+    
     
     var lottieView: LottieAnimationView?
     var upcomingEvents: [Event] = []
@@ -26,7 +31,6 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         
         let eventNib = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
         collectionView.register(eventNib, forCellWithReuseIdentifier: "eventCell")
-        
         let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
         collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell0")
         collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell1")
@@ -41,8 +45,28 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                                 withReuseIdentifier: "SectionHeaderView")
 
         collectionView.collectionViewLayout = createCompositionalLayout()
+        setupNavigationBar()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.checkIfFavorite()
     }
 
+    private func setupNavigationBar() {
+        let favoriteButton = UIBarButtonItem(
+            image: UIImage(systemName: "heart"),
+            style: .plain,
+            target: self,
+            action: #selector(favoriteTapped)
+        )
+        favoriteButton.tintColor = .green
+
+        navigationItem.rightBarButtonItem = favoriteButton
+    }
+    
+    @objc private func favoriteTapped() {
+           presenter.toggleFavorite(from:self)
+    }
     
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
@@ -157,7 +181,6 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
             group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
             let section = NSCollectionLayoutSection(group: group)
             section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 0)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 16, bottom: 8, trailing: 0)
             section.orthogonalScrollingBehavior = .continuous
             return section
         }
@@ -179,6 +202,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 return max(tennisPlayers.count, 0)
             }else{
                 return latestEvents.isEmpty ? 1 : latestEvents.count
+
             }
         default:
             return max(teams.count, 0)
@@ -199,21 +223,25 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath) as! UpComingEventsCollectionViewCell
-                
+                if presenter.sportName == "tennis" {
+                    let event = tennisEvents[indexPath.row]
+                    configureTennis(cell: cell, with: event, section: 0)
+                } else {
                     let event = upcomingEvents[indexPath.item]
                     configure(cell: cell, with: event, section: 0)
+                }
                 return cell
+
             }
         case 1:
-            if presenter.sportName == "tennis"{
-                guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as? TeamsCollectionViewCell else {
-                    fatalError("No Cell")
-                }
-                let players = tennisPlayers[indexPath.row]
-                cell.teamName.text = players.eventFirstPlayer ?? "Unknown Player"
-                let url = URL(string: players.eventFirstPlayerLogo ?? "")
+            if presenter.sportName == "tennis" {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as! TeamsCollectionViewCell
+                let player = tennisPlayers[indexPath.row]
+                cell.teamName.text = player.eventFirstPlayer ?? "Unknown Player"
+                let url = URL(string: player.eventFirstPlayerLogo ?? "")
                 cell.teamImage.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
                 return cell
+
             }else{
                 if latestEvents.isEmpty{
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "lottieCell1", for: indexPath) as! LottieeCollectionViewCell
@@ -228,12 +256,9 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
                     return cell
                 }
             }
-            
+
         default:
-            guard let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as? TeamsCollectionViewCell else {
-                fatalError("No Cell")
-            }
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "section3", for: indexPath) as! TeamsCollectionViewCell
             let team = teams[indexPath.row]
             cell.teamName.text = team.teamName
             let url = URL(string: team.teamLogo ?? "")
@@ -242,83 +267,121 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         }
     }
 
-    func configure(cell: UpComingEventsCollectionViewCell, with event: Event?, section: Int) {
-        guard let event = event else {
-            cell.team1name.text = ""
-            cell.team2name.text = ""
-            cell.score.text = ""
-            cell.date.text = ""
-            cell.time.text = ""
-            cell.team1Img.image = nil
-            cell.team2Img.image = nil
-            cell.layer.borderColor = nil
-            return
-        }
-        
-        cell.team1name.text = event.event_home_team
-        cell.team2name.text = event.event_away_team
-        cell.score.text = event.event_final_result ?? ""
-        cell.date.text = event.event_date
-        cell.time.text = event.event_time
-        
-        if let team1Url = URL(string: event.home_team_logo ?? "") {
-            cell.team1Img.kf.setImage(with: team1Url)
-        }
-        
-        if let team2Url = URL(string: event.away_team_logo ?? "") {
-            cell.team2Img.kf.setImage(with: team2Url)
-        }
-        
-        cell.layer.borderColor = (section == 0 ? UIColor.systemOrange : UIColor.systemGreen).cgColor
-        cell.layer.borderWidth = 2
-        cell.layer.cornerRadius = 12
-    }
-    
-    func configureTennis(cell: UpComingEventsCollectionViewCell, with event: TennisPlayerModel?, section: Int){
-        guard let event = event else {
-            cell.team1name.text = "No data available"
-            cell.team2name.text = ""
-            cell.score.text = ""
-            cell.date.text = ""
-            cell.time.text = ""
-            cell.team1Img.image = nil
-            cell.team2Img.image = nil
-            cell.layer.borderColor = nil
-            return
-        }
-        
-        cell.team1name.text = event.eventFirstPlayer
-        cell.team2name.text = event.eventSecondPlayer
-        cell.score.text = event.eventFinalResult ?? ""
-        cell.date.text = event.eventDate
-        cell.time.text = event.eventTime
-        
-        if let team1Url = URL(string: event.eventFirstPlayerLogo ?? "") {
-            cell.team1Img.kf.setImage(with: team1Url)
-        }
-        
-        if let team2Url = URL(string: event.eventScoundPlayerLogo ?? "") {
-            cell.team2Img.kf.setImage(with: team2Url)
-        }
-        
-        cell.layer.borderColor = (UIColor.systemGreen ).cgColor
-        cell.layer.borderWidth = 2
-        cell.layer.cornerRadius = 12
-    }
-    
-    func showLottieAnimationIfNeeded() {
-        let isEmpty = upcomingEvents.isEmpty && latestEvents.isEmpty
-        
-        if isEmpty {
-            if lottieView == nil {
-                setupLottieAnimation()
+        func configure(cell: UpComingEventsCollectionViewCell, with event: Event?, section: Int) {
+            guard let event = event else {
+                cell.team1name.text = ""
+                cell.team2name.text = ""
+                cell.score.text = ""
+                cell.date.text = ""
+                cell.time.text = ""
+                cell.team1Img.image = nil
+                cell.team2Img.image = nil
+                cell.layer.borderColor = nil
+                return
             }
-         
-            collectionView.backgroundView?.bringSubviewToFront(lottieView!)
-        } else {
-            removeLottieAnimation()
+            
+            cell.team1name.text = event.event_home_team
+            cell.team2name.text = event.event_away_team
+            cell.score.text = event.event_final_result ?? ""
+            cell.date.text = event.event_date
+            cell.time.text = event.event_time
+            
+            if let team1Url = URL(string: event.home_team_logo ?? "") {
+                cell.team1Img.kf.setImage(with: team1Url)
+            }
+            
+            if let team2Url = URL(string: event.away_team_logo ?? "") {
+                cell.team2Img.kf.setImage(with: team2Url)
+            }
+            
+            cell.layer.borderColor = (section == 0 ? UIColor.systemOrange : UIColor.systemGreen).cgColor
+            cell.layer.borderWidth = 2
+            cell.layer.cornerRadius = 12
         }
-    }
+        
+        func configureTennis(cell: UpComingEventsCollectionViewCell, with event: TennisPlayerModel?, section: Int){
+            guard let event = event else {
+                cell.team1name.text = "No data available"
+                cell.team2name.text = ""
+                cell.score.text = ""
+                cell.date.text = ""
+                cell.time.text = ""
+                cell.team1Img.image = nil
+                cell.team2Img.image = nil
+                cell.layer.borderColor = nil
+                return
+            }
+            
+            cell.team1name.text = event.eventFirstPlayer
+            cell.team2name.text = event.eventSecondPlayer
+            cell.score.text = event.eventFinalResult ?? ""
+            cell.date.text = event.eventDate
+            cell.time.text = event.eventTime
+            
+            if let team1Url = URL(string: event.eventFirstPlayerLogo ?? "") {
+                cell.team1Img.kf.setImage(with: team1Url)
+            }
+            
+            if let team2Url = URL(string: event.eventScoundPlayerLogo ?? "") {
+                cell.team2Img.kf.setImage(with: team2Url)
+            }
+            
+            cell.layer.borderColor = (UIColor.systemGreen ).cgColor
+            cell.layer.borderWidth = 2
+            cell.layer.cornerRadius = 12
+        }
+        
+        func showLottieAnimationIfNeeded() {
+            let isEmpty = upcomingEvents.isEmpty && latestEvents.isEmpty
+            
+            if isEmpty {
+                if lottieView == nil {
+                    setupLottieAnimation()
+                }
+                
+                collectionView.backgroundView?.bringSubviewToFront(lottieView!)
+            } else {
+                removeLottieAnimation()
+            }
+        }
+        
+   
+        
+        private func removeLottieAnimation() {
+            lottieView?.stop()
+            lottieView?.removeFromSuperview()
+            lottieView = nil
+            collectionView.backgroundView = nil
+        }
+        
+
+        
+        override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+            let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)
+            let teamDetailsVC = teamStoryBoard.instantiateViewController(identifier: "teamsDetails") as! TeamsDetailsViewController
+            switch indexPath.section {
+            case 2:
+                NetworkManager.isInternetAvailable { isAvailable in
+                    DispatchQueue.main.async {
+                        if isAvailable {
+                            let team = self.teams[indexPath.row]
+                            let teamDetailsPresenter = TeamsDetailsPresenter(team: team, teamDetailsView: teamDetailsVC, sportName: self.presenter.sportName)
+                            teamDetailsVC.presenter = teamDetailsPresenter
+                            self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+                        }else{
+                            let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                            self.present(alert, animated: true)
+                        }
+                    }
+                }
+            default:
+                break
+            }
+        }
+    
+
 
     private func setupLottieAnimation() {
         lottieView = LottieAnimationView(name: "empty")
@@ -342,12 +405,7 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         lottieView?.play()
     }
 
-    private func removeLottieAnimation() {
-        lottieView?.stop()
-        lottieView?.removeFromSuperview()
-        lottieView = nil
-        collectionView.backgroundView = nil
-    }
+
 
 override func collectionView(
     _ collectionView: UICollectionView,
@@ -388,17 +446,5 @@ override func collectionView(
     return header
 }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)
-        let teamDetailsVC = teamStoryBoard.instantiateViewController(identifier: "teamsDetails") as! TeamsDetailsViewController
-        switch indexPath.section {
-        case 2:
-            let team = teams[indexPath.row]
-            let teamDetailsPresenter = TeamsDetailsPresenter(team: team, teamDetailsView: teamDetailsVC, sportName: self.presenter.sportName)
-            teamDetailsVC.presenter = teamDetailsPresenter
-            self.navigationController?.pushViewController(teamDetailsVC, animated: true)
-        default:
-            break
-        }
-    }
+  
 }

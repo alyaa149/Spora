@@ -31,7 +31,12 @@ class SplashViewController: UIViewController {
 
     private func goToMainApp() {
 
-        let tabBarController = TabBar()
+        let homeVC = CategoryCollectionViewController(nibName: "CategoryCollectionViewController", bundle: nil)
+        let presenter = CategoriesPresenter(categoriesView: homeVC)
+        homeVC.presenter = presenter
+        
+        let tabBarController = TabBar(homeVC: homeVC)
+        
         // Wrap tab bar in a navigation controller
             let navigationController = UINavigationController(rootViewController: tabBarController)
 
