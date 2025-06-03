@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LeagueDetailsPresenter {
     private var localDataSource = FavoriteLeaguesLocalDataSource()
@@ -27,16 +28,25 @@ class LeagueDetailsPresenter {
         checkIfFavorite()
     }
 
-    func toggleFavorite() {
-        if isFavorite {
-            localDataSource.deleteLeague(withKey: league.league_key ?? 0)
-        } else {
-            league.sportName = sportName
-            localDataSource.saveLeague(league)
+    func toggleFavorite(from viewController: UIViewController) {
+            if isFavorite {
+                let alert = UIAlertController(
+                    title: "Are you sure?",
+                    message: "Do you want to delete this favorite league?",
+                    preferredStyle: .alert
+                )
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+                    self.localDataSource.deleteLeague(withKey: self.league.league_key ?? 0)
+                    self.checkIfFavorite()
+                })
+                viewController.present(alert, animated: true)
+            } else {
+                league.sportName = sportName
+                localDataSource.saveLeague(league)
+                checkIfFavorite()
+            }
         }
-        checkIfFavorite()
-    }
-
 
     func checkIfFavorite() {
         let favorites = localDataSource.fetchFavoriteLeagues()
