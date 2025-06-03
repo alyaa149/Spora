@@ -63,11 +63,10 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
 
         navigationItem.rightBarButtonItem = favoriteButton
     }
+    
     @objc private func favoriteTapped() {
         presenter.toggleFavorite(from:self)
     }
-
-
     
     func displayUpcomingEvents(_ events: [Event]) {
         self.upcomingEvents = events
@@ -358,14 +357,25 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
 
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
             let teamStoryBoard = UIStoryboard(name: "TeamsDetails", bundle: nil)
             let teamDetailsVC = teamStoryBoard.instantiateViewController(identifier: "teamsDetails") as! TeamsDetailsViewController
             switch indexPath.section {
             case 2:
-                let team = teams[indexPath.row]
-                let teamDetailsPresenter = TeamsDetailsPresenter(team: team, teamDetailsView: teamDetailsVC, sportName: self.presenter.sportName)
-                teamDetailsVC.presenter = teamDetailsPresenter
-                self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+                NetworkManager.isInternetAvailable { isAvailable in
+                    DispatchQueue.main.async {
+                        if isAvailable {
+                            let team = self.teams[indexPath.row]
+                            let teamDetailsPresenter = TeamsDetailsPresenter(team: team, teamDetailsView: teamDetailsVC, sportName: self.presenter.sportName)
+                            teamDetailsVC.presenter = teamDetailsPresenter
+                            self.navigationController?.pushViewController(teamDetailsVC, animated: true)
+                        }else{
+                            let alert = UIAlertController(title: "No Internet", message: "Please check your connection.",preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                            self.present(alert, animated: true)
+                        }
+                    }
+                }
             default:
                 break
             }

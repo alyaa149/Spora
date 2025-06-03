@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "568589DE-1122-4741-B163-8D57B6008941",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SporaApp.xcodeproj",
+      "identifier" : "229243A52DE5A979009A4F96",
+      "name" : "SporaApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SporaApp.xcodeproj",
+        "identifier" : "229243BE2DE5A983009A4F96",
+        "name" : "SporaAppTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SporaApp.xcodeproj",
+        "identifier" : "229243C82DE5A983009A4F96",
+        "name" : "SporaAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
