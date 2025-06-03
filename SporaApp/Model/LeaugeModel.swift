@@ -15,7 +15,7 @@ struct LeagueModel: Decodable {
     let leagueName: String
     let leagueLogo: String?
     let league_key: Int?
-    
+    var sportName: String = ""
     enum CodingKeys: String,CodingKey {
         case leagueName = "league_name"
         case leagueLogo = "league_logo"

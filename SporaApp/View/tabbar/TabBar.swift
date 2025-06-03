@@ -13,7 +13,7 @@ class TabBar: UITabBarController {
         super.viewDidLoad()
 
         let homeVC = CategoryCollectionViewController(nibName: "CategoryCollectionViewController", bundle: nil)
-        let favVC = FavoritesTableViewController(nibName: "FavoritesTableViewController", bundle: nil)
+        let favVC = FavTableViewController(nibName: "FavTableViewController", bundle: nil)
         let greenColor = UIColor(red: 185/255, green: 212/255, blue: 170/255, alpha: 1.0)
 
         homeVC.tabBarItem = UITabBarItem(

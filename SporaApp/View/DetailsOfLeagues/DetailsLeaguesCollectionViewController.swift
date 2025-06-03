@@ -10,6 +10,11 @@ import Kingfisher
 import Lottie
 
 class DetailsLeaguesCollectionViewController: UICollectionViewController, LeagueDetailsViewProtocol, UICollectionViewDelegateFlowLayout {
+    func updateFavoriteIcon(isFavorite: Bool) {
+        let icon = isFavorite ? "heart.fill" : "heart"
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: icon)
+    }
+    
     
     var lottieView: LottieAnimationView?
     var upcomingEvents: [Event] = []
@@ -26,7 +31,6 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         
         let eventNib = UINib(nibName: "UpComingEventsCollectionViewCell", bundle: nil)
         collectionView.register(eventNib, forCellWithReuseIdentifier: "eventCell")
-        
         let lottieNib = UINib(nibName: "LottieeCollectionViewCell", bundle: nil)
         collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell0")
         collectionView.register(lottieNib, forCellWithReuseIdentifier: "lottieCell1")
@@ -42,8 +46,12 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
 
         collectionView.collectionViewLayout = createCompositionalLayout()
         setupNavigationBar()
-
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.checkIfFavorite()
+    }
+
     private func setupNavigationBar() {
         let favoriteButton = UIBarButtonItem(
             image: UIImage(systemName: "heart"),
@@ -56,14 +64,9 @@ class DetailsLeaguesCollectionViewController: UICollectionViewController, League
         navigationItem.rightBarButtonItem = favoriteButton
     }
     @objc private func favoriteTapped() {
-        print("Favorite icon tapped")
-        if let currentImage = navigationItem.rightBarButtonItem?.image,
-           currentImage == UIImage(systemName: "heart") {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart.fill")
-        } else {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "heart")
-        }
+        presenter.toggleFavorite()
     }
+
 
     
     func displayUpcomingEvents(_ events: [Event]) {

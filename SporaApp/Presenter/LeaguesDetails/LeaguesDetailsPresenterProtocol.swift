@@ -12,4 +12,6 @@ protocol LeagueDetailsViewProtocol: AnyObject {
     func displayTeams(_ teams: [TeamModel])
     func displayTennisEvents(_ tennisEvents: TennisPlayerResponse)
     func displayTennisPlayers(_ tennisPlayers: TennisPlayerResponse)
+    func updateFavoriteIcon(isFavorite: Bool)
+
 }
