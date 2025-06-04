@@ -126,10 +126,22 @@ class TeamsDetailsViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection){
+            tableView.reloadData()
+        }
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 40))
-        let label = UILabel(frame: CGRect(x: 5, y: -10, width: (self.tableView.bounds.size.width ) - 32, height: 30))
-        label.textColor = UIColor.black
+        
+        let label = UILabel(frame: CGRect(x: 5, y: -10, width: (self.tableView.bounds.size.width) - 32, height: 30))
+
+           
+        label.textColor = UIColor { traitCollection in
+               return traitCollection.userInterfaceStyle == .dark ? .white : .black
+           }
         label.font = UIFont(name: "System", size: 18)
         
         if presenter.sportName == "football" {
