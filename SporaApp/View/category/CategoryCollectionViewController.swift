@@ -18,7 +18,6 @@ class CategoryCollectionViewController: UICollectionViewController,UICollectionV
          super.viewDidLoad()
          print("Nav controller: \(navigationController != nil ? "Exists" : "Nil")")
          self.navigationItem.title = "Sports Categories"
-         collectionView.backgroundColor = .white
          let nib = UINib(nibName: "CategoryCollectionViewCell", bundle: nil)
          collectionView.register(nib, forCellWithReuseIdentifier: "CategoryCollectionViewCell")
        

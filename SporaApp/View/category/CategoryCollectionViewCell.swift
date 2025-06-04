@@ -21,7 +21,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
            sportLabel.text = title
            sportImageView.image = image
            print(sportLabel.text!)
-           sportLabel.textColor = .black
+           sportLabel.textColor = .label
            layer.borderColor = UIColor(red: 185/255, green: 212/255, blue: 170/255, alpha: 1.0).cgColor
            layer.borderWidth = 2
            layer.cornerRadius = 12

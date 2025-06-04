@@ -20,11 +20,6 @@ class UpComingEventsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        team1Img.layer.cornerRadius = team1Img.frame.size.width / 2
-        team1Img.clipsToBounds = true
-                
-        team2Img.layer.cornerRadius = team2Img.frame.size.width / 2
-        team2Img.clipsToBounds = true
     }
 
 }

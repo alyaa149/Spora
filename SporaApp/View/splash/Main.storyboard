@@ -8,6 +8,70 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--On Boarding Page2 View Controller-->
+        <scene sceneID="NeK-aR-IGL">
+            <objects>
+                <viewController storyboardIdentifier="page2" id="LK0-5q-JPi" customClass="OnBoardingPage2ViewController" customModule="SporaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1L-2G-G5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spora App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLe-l3-UgL">
+                                <rect key="frame" x="133" y="159" width="127" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.38162063660000001" green="0.70806607939999999" blue="0.59589362040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get real-time stats, game schedules, and team standings. Never miss a moment from your favorite leagues and tournaments." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxj-tv-xBT">
+                                <rect key="frame" x="20" y="252" width="353" height="91"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lc3-DP-kNI">
+                                <rect key="frame" x="76.666666666666686" y="395" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4FZ-Vg-QFz"/>
+                                    <constraint firstAttribute="height" constant="128" id="CYv-es-R1T"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cx4-SF-Bmh">
+                                <rect key="frame" x="135.66666666666666" y="600" width="121.66666666666666" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" red="0.38162063660000001" green="0.70806607939999999" blue="0.59589362040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get Started !"/>
+                                <connections>
+                                    <action selector="navigateBtn:" destination="LK0-5q-JPi" eventType="touchUpInside" id="hWI-CV-3QY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lys-hq-OjE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cx4-SF-Bmh" firstAttribute="centerX" secondItem="Lys-hq-OjE" secondAttribute="centerX" id="2ye-Rc-3cG"/>
+                            <constraint firstItem="Lc3-DP-kNI" firstAttribute="centerX" secondItem="Lys-hq-OjE" secondAttribute="centerX" id="42K-aP-Io2"/>
+                            <constraint firstItem="tLe-l3-UgL" firstAttribute="centerX" secondItem="Lys-hq-OjE" secondAttribute="centerX" id="9dh-vW-Nvk"/>
+                            <constraint firstItem="wxj-tv-xBT" firstAttribute="top" secondItem="tLe-l3-UgL" secondAttribute="bottom" constant="59.333333333333343" id="A0m-ic-cRH"/>
+                            <constraint firstItem="Lc3-DP-kNI" firstAttribute="centerX" secondItem="wxj-tv-xBT" secondAttribute="centerX" id="BsR-Dw-t41"/>
+                            <constraint firstItem="Lys-hq-OjE" firstAttribute="trailing" secondItem="wxj-tv-xBT" secondAttribute="trailing" constant="20" id="Orf-mJ-fb1"/>
+                            <constraint firstItem="tLe-l3-UgL" firstAttribute="top" secondItem="Lys-hq-OjE" secondAttribute="top" constant="100" id="VHA-vZ-S2c"/>
+                            <constraint firstItem="Lc3-DP-kNI" firstAttribute="top" secondItem="wxj-tv-xBT" secondAttribute="bottom" constant="52" id="acD-K0-Ryp"/>
+                            <constraint firstItem="wxj-tv-xBT" firstAttribute="leading" secondItem="Lys-hq-OjE" secondAttribute="leading" constant="20" id="ebO-YX-kaR"/>
+                            <constraint firstItem="cx4-SF-Bmh" firstAttribute="leading" secondItem="Lys-hq-OjE" secondAttribute="leading" constant="135.66666666666663" id="fVb-DY-cG9"/>
+                            <constraint firstItem="cx4-SF-Bmh" firstAttribute="top" secondItem="Lc3-DP-kNI" secondAttribute="bottom" constant="77" id="xmr-uv-xiX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationContainer" destination="Lc3-DP-kNI" id="rcx-DH-2kx"/>
+                        <outlet property="desc" destination="wxj-tv-xBT" id="pf6-km-yOr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TGD-EK-pCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="-785"/>
+        </scene>
         <!--Splash View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -15,18 +79,84 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6p7-jH-EOj">
+                                <rect key="frame" x="75" y="134" width="243" height="609"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6p7-jH-EOj" secondAttribute="trailing" constant="75" id="6ea-vx-ZB5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6p7-jH-EOj" secondAttribute="bottom" constant="75" id="8Au-GX-HCR"/>
+                            <constraint firstItem="6p7-jH-EOj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="75" id="gGR-ev-qYz"/>
+                            <constraint firstItem="6p7-jH-EOj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="75" id="kCi-sa-cJL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="animationContainerr" destination="6p7-jH-EOj" id="eFV-5C-jd2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="-27"/>
+            <point key="canvasLocation" x="35.877862595419849" y="-27.464788732394368"/>
+        </scene>
+        <!--Container PageVC-->
+        <scene sceneID="jes-hr-edB">
+            <objects>
+                <pageViewController storyboardIdentifier="container" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Npd-Fl-LSb" customClass="ContainerPageVC" customModule="SporaApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yQ1-zZ-0Ml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="-27"/>
+        </scene>
+        <!--On Boarding1 View Controller-->
+        <scene sceneID="f1u-Ft-mY7">
+            <objects>
+                <viewController storyboardIdentifier="page1" id="Zqk-yZ-YJD" customClass="OnBoarding1ViewController" customModule="SporaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UVD-hp-3uz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spora App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-82-em4">
+                                <rect key="frame" x="133" y="259" width="127" height="33.666666666666686"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.38162063660000001" green="0.70806607939999999" blue="0.59589362040000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1d-oQ-yKF">
+                                <rect key="frame" x="20" y="390.66666666666669" width="353" height="95.666666666666686"/>
+                                <string key="text">Follow your favorite sports—football, tennis, cricket, and basketball—with live scores, match updates, and league news from around the world.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="71w-Em-20Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v1d-oQ-yKF" firstAttribute="centerY" secondItem="71w-Em-20Q" secondAttribute="centerY" id="2IM-Pf-Nsh"/>
+                            <constraint firstItem="zLE-82-em4" firstAttribute="top" secondItem="71w-Em-20Q" secondAttribute="top" constant="200" id="2ze-jh-Jdl"/>
+                            <constraint firstItem="71w-Em-20Q" firstAttribute="trailing" secondItem="v1d-oQ-yKF" secondAttribute="trailing" constant="20" id="6Jb-EU-z2A"/>
+                            <constraint firstItem="v1d-oQ-yKF" firstAttribute="leading" secondItem="71w-Em-20Q" secondAttribute="leading" constant="20" id="WSQ-PL-efs"/>
+                            <constraint firstItem="zLE-82-em4" firstAttribute="centerX" secondItem="71w-Em-20Q" secondAttribute="centerX" id="vlI-aY-wgP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJg-Eg-7Pw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858.77862595419845" y="-785.21126760563379"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

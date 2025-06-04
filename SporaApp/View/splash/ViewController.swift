@@ -2,11 +2,11 @@ import UIKit
 import Lottie
 
 class SplashViewController: UIViewController {
-    private let animationView = AnimationView(name: "splash")
+    private let animationView = LottieAnimationView(name: "splash")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupAnimation()
     }
 
@@ -25,28 +25,51 @@ class SplashViewController: UIViewController {
         ])
 
         animationView.play { [weak self] _ in
-            self?.goToMainApp()
+            print("Lottie finished playing: ")
+            self?.goToOnBoardingApp()
         }
     }
 
-    private func goToMainApp() {
+    private func goToOnBoardingApp() {
+           let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        print("Has seen onboarding: \(hasSeenOnboarding)")
 
-        let homeVC = CategoryCollectionViewController(nibName: "CategoryCollectionViewController", bundle: nil)
-        let presenter = CategoriesPresenter(categoriesView: homeVC)
-        homeVC.presenter = presenter
-        
-        let tabBarController = TabBar(homeVC: homeVC)
-        
-        // Wrap tab bar in a navigation controller
-            let navigationController = UINavigationController(rootViewController: tabBarController)
+           if hasSeenOnboarding {
+               print("Navigating to Home VC")
 
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                
-                UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
-                    window.rootViewController = navigationController
-                }
-            }
-    }
+               let homeVC = CategoryCollectionViewController(nibName: "CategoryCollectionViewController", bundle: nil)
+               let presenter = CategoriesPresenter(categoriesView: homeVC)
+               homeVC.presenter = presenter
+               
+               let tabBarController = TabBar(homeVC: homeVC)
+               let navigationController = UINavigationController(rootViewController: tabBarController)
+               
+               if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first {
+                   UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve) {
+                       window.rootViewController = navigationController
+                   }
+               }
+           } else {
+               print("Navigating to onboarding")
+               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+               if let containerVC = storyboard.instantiateViewController(withIdentifier: "container") as? ContainerPageVC {
+                   print("Container VC instantiated successfully")
+
+                   let navigationController = UINavigationController(rootViewController: containerVC)
+                   
+                   if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+                      let window = sceneDelegate.window {
+                       window.rootViewController = navigationController
+                       window.makeKeyAndVisible()
+                   }
+
+               }else{
+                   print("Failed to instantiate container VC")
+
+               }
+           }
+       }
 }
 
